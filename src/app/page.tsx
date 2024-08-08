@@ -81,7 +81,7 @@ export default function Home() {
         },
         {
           id: 2,
-          thumbnail: "/product/Stainless-Steel-Bottle .png",
+          thumbnail: "/product/Stainless-Steel-Bottle.png",
           sold: "12345 products sold",
           title: "Stainless Steel Bottle  ",
           price: "$15.00",
@@ -95,7 +95,7 @@ export default function Home() {
         },
         {
           id: 2,
-          thumbnail: "/product/Stainless-Steel-Bottle-1 .png ",
+          thumbnail: "/product/Stainless-Steel-Bottle-1.png ",
           sold: "12345 products sold",
           title: "Stainless Steel Bottle  ",
           price: "$15.00",
@@ -109,7 +109,7 @@ export default function Home() {
       product: [
         {
           id: 1,
-          thumbnail: "/product/Stainless-Steel-Bottle-1 .png",
+          thumbnail: "/product/Stainless-Steel-Bottle-1.png",
           sold: "12345 products sold",
           title: "Stainless Steel Bottle  ",
           price: "$15.00",
@@ -189,16 +189,16 @@ export default function Home() {
   return (
     <main className="bg-[#f4f4f4] space-y-20">
       {/* Section 1: Hero */}
-      <section className="bg-[#E1DAD6] h-screen flex">
-        <div className="relative w-[50rem] left-10 top-[170px] h-fit space-y-10 ">
-          <h1 className="text-5xl">
+      <section className="bg-[#E1DAD6]  h-screen flex">
+        <div className="relative md:w-[50rem] w-[24rem] md:left-10 px-4 top-[80px]  ms:top-[170px] h-fit space-y-10 ">
+          <h1 className="md:text-5xl text-2xl font-medium md:font-normal">
             Shining Beacon of Innovation and Sustainbility
           </h1>
           <p className="font-medium text-xl">
             Born out of a deep commitment to eco-friendly practices we redifened
             everyday utensils and drinkware
           </p>
-          <button className="bg-[#463B34] hover:bg-[#6f584a] px-20 py-4 text text-white">
+          <button className="bg-[#463B34] hover:bg-[#6f584a] md:px-20 px-10 py-4  text-white">
             SHOP NOW
           </button>
         </div>
@@ -218,6 +218,7 @@ export default function Home() {
             <div className="space-x-5">
               {dummyBestSeller.map((category, index) => (
                 <button
+                  key={index}
                   onClick={() => handleCategorySelect(category)}
                   className="bg-[#7A543E] hover:bg-[#784426] px-5 py-2 text-[#f4f4f4] rounded-3xl"
                 >
@@ -228,7 +229,7 @@ export default function Home() {
           </div>
           <div className="flex gap-[26px]">
             {selectedCategory.product.map((product, index) => (
-              <div className="">
+              <div key={index} className="">
                 <div className="relative w-[300px] h-[350px]">
                   <Image
                     src={product.thumbnail}
@@ -259,7 +260,10 @@ export default function Home() {
 
         <div className="grid grid-cols-2 justify-items-center gap-10">
           {dummyBestSeller.map((categories, index) => (
-            <div className="space-y-4 animate-fadeIn transform  transition-transform  duration-500 ease-in-out hover:-translate-y-2">
+            <div
+              key={index}
+              className="space-y-4 animate-fadeIn transform  transition-transform  duration-500 ease-in-out hover:-translate-y-2"
+            >
               <div className="relative w-[450px] h-[250px]">
                 <Image
                   src={categories.image}
