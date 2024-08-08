@@ -25,7 +25,7 @@ const CarouselClient: React.FC<CarouselClientProps> = ({ clients }) => {
       <CarouselContent className="ml-1">
         {clients.map((client, index) => (
           <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/6">
-            <div className="relative h-[150px] w-[150px]">
+            <div className="relative h-[125px] w-[125px]">
               <Image
                 src={client.image}
                 alt={client.name}

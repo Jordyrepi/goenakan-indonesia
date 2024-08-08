@@ -32,67 +32,128 @@ const Navbar = () => {
   };
 
   return (
+    // <header
+    //   className={`sticky top-0 z-50 transition duration-300 ${
+    //     scrollPosition > 0
+    //       ? "bg-white bg-opacity-50 backdrop-blur-md"
+    //       : "bg-transparent"
+    //   }`}
+    // >
+    //   <div className="lg:h-7 h-5 bg-[#7A543E]"></div>
+    //   <nav className="max-w-[1400px] mx-auto w-full ">
+    //     <div className="hidden md:flex justify-between items-center">
+    //       <div className="relative w-[190px] h-[70px]">
+    //         <Image
+    //           fill
+    //           className="object-cover"
+    //           src={"/company-logo.png"}
+    //           alt="logo navbar"
+    //         />
+    //       </div>
+    //       <li className="flex gap-10">
+    //         <ul>Show All</ul>
+    //         <ul>Stainless Stell Products</ul>
+    //         <ul>Bamboo Products</ul>
+    //         <ul>Wooden Products</ul>
+    //         <ul>Glass Products</ul>
+    //         <ul>Mix</ul>
+    //       </li>
+    //       <div>search</div>
+    //     </div>
+    //     <div className="md:hidden flex justify-between items-center w-full">
+    //       <div className=" relative md:w-[190px] w-[140px] md:h-[70px] h-[50px]">
+    //         <Image
+    //           fill
+    //           className="object-cover"
+    //           src={"/company-logo.png"}
+    //           alt="logo navbar"
+    //         />
+    //       </div>
+    //       <Sheet>
+    //         <SheetTrigger asChild>
+    //           <button onClick={toggleMenu}>
+    //             {isMenuOpen ? (
+    //               <FaTimes className="h-5 w-5 text-black" />
+    //             ) : (
+    //               <FaBars className="h-5 w-5 text-black" />
+    //             )}
+    //           </button>
+    //         </SheetTrigger>
+    //         <SheetContent>
+    //           <li className="list-none space-y-2">
+    //             <ul>Show All</ul>
+    //             <ul>Stainless Stell Products</ul>
+    //             <ul>Bamboo Products</ul>
+    //             <ul>Wooden Products</ul>
+    //             <ul>Glass Products</ul>
+    //             <ul>Mix</ul>
+    //           </li>
+    //         </SheetContent>
+    //       </Sheet>
+    //     </div>
+    //   </nav>
+    // </header>
     <header
-      className={`sticky top-0 z-50 transition duration-300 ${
-        scrollPosition > 0
-          ? "bg-white bg-opacity-50 backdrop-blur-md"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="lg:h-10 h-5 bg-[#7A543E]"></div>
-      <nav className="max-w-[1400px] mx-auto w-full flex justify-between items-center">
-        <div className="w-full hidden md:flex justify-between items-center">
-          <div className=" relative w-[190px] h-[70px]">
-            <Image
-              fill
-              className="object-cover"
-              src={"/company-logo.png"}
-              alt="logo navbar"
-            />
-          </div>
-          <li className="flex gap-10">
-            <ul>Show All</ul>
-            <ul>Stainless Stell Products</ul>
-            <ul>Bamboo Products</ul>
-            <ul>Wooden Products</ul>
-            <ul>Glass Products</ul>
-            <ul>Mix</ul>
-          </li>
-          <div>search</div>
+    className={`sticky top-0 z-50 transition duration-400 ease-in-out ${
+      scrollPosition > 0
+        ? "bg-white bg-opacity-50 backdrop-blur-md"
+        : "bg-transparent"
+    }`}
+  >
+    <div className="lg:h-7 h-5 bg-[#7A543E]"></div>
+    <nav className="max-w-7xl mx-auto w-full ">
+      <div className="hidden md:flex justify-between items-center ">
+        <div className="relative w-[190px] h-[70px]">
+          <Image
+            fill
+            className="object-cover"
+            src={"/company-logo.png"}
+            alt="logo navbar"
+          />
         </div>
-        <div className="md:hidden flex justify-between items-center w-full">
-          <div className=" relative md:w-[190px] w-[140px] md:h-[70px] h-[50px]">
-            <Image
-              fill
-              className="object-cover"
-              src={"/company-logo.png"}
-              alt="logo navbar"
-            />
-          </div>
-          <Sheet>
-            <SheetTrigger asChild>
-              <button onClick={toggleMenu}>
-                {isMenuOpen ? (
-                  <FaTimes className="h-5 w-5 text-black" />
-                ) : (
-                  <FaBars className="h-5 w-5 text-black" />
-                )}
-              </button>
-            </SheetTrigger>
-            <SheetContent>
-              <li className="list-none space-y-2">
-                <ul>Show All</ul>
-                <ul>Stainless Stell Products</ul>
-                <ul>Bamboo Products</ul>
-                <ul>Wooden Products</ul>
-                <ul>Glass Products</ul>
-                <ul>Mix</ul>
-              </li>
-            </SheetContent>
-          </Sheet>
+        <ul className="flex gap-10">
+          <li>Show All</li>
+          <li>Stainless Steel Products</li>
+          <li>Bamboo Products</li>
+          <li>Wooden Products</li>
+          <li>Glass Products</li>
+          <li>Mix</li>
+        </ul>
+        <div>search</div>
+      </div>
+      <div className="md:hidden flex justify-between items-center w-full py-4">
+        <div className="relative w-[140px] h-[50px] md:w-[190px] md:h-[70px]">
+          <Image
+            fill
+            className="object-cover"
+            src={"/company-logo.png"}
+            alt="logo navbar"
+          />
         </div>
-      </nav>
-    </header>
+        <Sheet>
+          <SheetTrigger asChild>
+            <button onClick={toggleMenu}>
+              {isMenuOpen ? (
+                <FaTimes className="h-5 w-5 text-black" />
+              ) : (
+                <FaBars className="h-5 w-5 text-black" />
+              )}
+            </button>
+          </SheetTrigger>
+          <SheetContent>
+            <ul className="list-none space-y-2">
+              <li>Show All</li>
+              <li>Stainless Steel Products</li>
+              <li>Bamboo Products</li>
+              <li>Wooden Products</li>
+              <li>Glass Products</li>
+              <li>Mix</li>
+            </ul>
+          </SheetContent>
+        </Sheet>
+      </div>
+    </nav>
+  </header>
   );
 };
 
