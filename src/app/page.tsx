@@ -1,8 +1,4 @@
 "use client";
-import { Client } from "@/types/client.types";
-import CarouselClient from "./components/CarouselClient";
-import { useState } from "react";
-import Image from "next/image";
 import {
   Select,
   SelectContent,
@@ -10,7 +6,11 @@ import {
   SelectItem,
   SelectLabel,
 } from "@/components/ui/Select";
+import { Client } from "@/types/client.types";
 import { SelectTrigger, SelectValue } from "@radix-ui/react-select";
+import Image from "next/image";
+import { useState } from "react";
+import CarouselClient from "./components/CarouselClient";
 
 export default function Home() {
   const dummyClients: Client[] = [
@@ -187,7 +187,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="space-y-10 bg-[#f4f4f4]">
+    <main className="space-y-10 bg-[#f4f4f4] mb-10">
       {/* Section 1: Hero */}
       <section className="flex h-screen bg-[#E1DAD6]">
         <div className="ms:top-[170px] relative top-[150px] h-fit w-[24rem] space-y-5 px-4 md:left-10 md:w-[46rem]">
@@ -283,7 +283,7 @@ export default function Home() {
       </section>
 
       {/* Section 5 : Goenakan banner */}
-      <section className="relative h-[650px] w-full ">
+      <section className="relative h-[650px] w-full">
         <Image
           fill
           className="absolute z-0 object-cover"
@@ -351,7 +351,7 @@ export default function Home() {
       {/* Section 8 : Form */}
       <section className="mx-auto w-full max-w-7xl space-y-12">
         <h2 className="text-center font-serif text-5xl font-medium">
-          Custom Personalization
+          Custom Order Form
         </h2>
         <form className="flex items-center justify-center bg-white">
           <div className="w-[45rem] space-y-8 rounded-lg border border-black p-16">
