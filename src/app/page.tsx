@@ -23,7 +23,7 @@ export default function Home({}) {
 
   useEffect(() => {
     const getClientEntries = async () => {
-      // setIsLoading(true);
+      setIsLoading(false);
       const entries = await getEntries("client");
       setClient(entries);
     };
@@ -40,7 +40,7 @@ export default function Home({}) {
     const getBestSellerProducts = async () => {
       const entries = await getEntries("product");
       SetProducts(entries);
-      // setIsLoading(false);
+      setIsLoading(false);
     };
 
     getBestSellerProducts();
