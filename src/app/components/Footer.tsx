@@ -77,7 +77,7 @@ const Footer = () => {
                 <Link href={"/"}>Shop All</Link>
               </li>
               <li>
-                <Link href={"/"}>About Us</Link>
+                <Link href={"/about-us"}>About Us</Link>
               </li>
               <li>
                 <Link href={"/"}>Stainless Steel Products</Link>
@@ -92,7 +92,7 @@ const Footer = () => {
                 <Link href={"/"}>Mix Products</Link>
               </li>
               <li>
-                <Link href={"/"}>FAQ</Link>
+                <Link href={"/frequently-ask-question"}>FAQ</Link>
               </li>
             </ul>
           </div>

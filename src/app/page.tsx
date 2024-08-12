@@ -1,155 +1,25 @@
 "use client";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-} from "@/components/ui/Select";
 import { Categories } from "@/types/categories.types";
 import { Client, initialClientState } from "@/types/client.types";
 import { Product } from "@/types/product.types";
 import { getEntries } from "@/utils/contenful/get-entries";
-import { SelectTrigger, SelectValue } from "@radix-ui/react-select";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import CarouselClient from "./components/CarouselClient";
+import CustomOrderSection from "./components/CustomOrderSection";
+import IconsSection from "./components/IconsSection";
 import LoadingSpinner from "./components/LoadingSpinner ";
 
 export default function Home() {
-  const dummyBestSeller = [
-    {
-      id: 1,
-      categoryName: "STAINLESS STEEL",
-      image: "/Stainless Steel.png",
-      product: [
-        {
-          id: 1,
-          thumbnail: "/product/Stainless-Sublimation-Bottle-Bamboo.jpg",
-          sold: "12345 products sold",
-          title: "Stainless Sublimation Bottle ",
-          slug: "stainless-sublimation-bottle",
-          price: "$15.00",
-        },
-        {
-          id: 2,
-          thumbnail: "/product/Stainless-Steel-Bottle.png",
-          sold: "12345 products sold",
-          title: "Stainless Steel Bottle  ",
-          slug: "stainless-steel-bottle",
-          price: "$15.00",
-        },
-        {
-          id: 2,
-          thumbnail: "/product/Stainless-Steel-Vacum-Bottle.jpg",
-          sold: "12345 products sold",
-          title: "Stainless Steel Vacum Bottle ",
-          slug: "stainless-steel-vacum-bottle",
-          price: "$15.00",
-        },
-        {
-          id: 2,
-          thumbnail: "/product/Stainless-Steel-Bottle-1.png ",
-          sold: "12345 products sold",
-          title: "Stainless Steel Bottle  ",
-          slug: "stainless-steel-bottle",
-          price: "$15.00",
-        },
-      ],
-    },
-    {
-      id: 2,
-      categoryName: "BAMBOO PRODUCTS",
-      image: "/Stainless Steel.png",
-      product: [
-        {
-          id: 1,
-          thumbnail: "/product/Stainless-Steel-Bottle-1.png",
-          sold: "12345 products sold",
-          title: "Stainless Steel Bottle  ",
-          slug: "stainless-steel-bottle",
-          price: "$15.00",
-        },
-      ],
-    },
-    {
-      id: 3,
-      categoryName: "GLASS PRODUCTS",
-      image: "/Stainless Steel.png",
-      product: [
-        {
-          id: 1,
-          thumbnail: "/product/Stainless-Steel-Bottle.png",
-          sold: "12345 products sold",
-          title: "Stainless Steel Bottle  ",
-          slug: "stainless-steel-bottle",
-          price: "$15.00",
-        },
-        {
-          id: 2,
-          thumbnail: "/product/Stainless-Steel-Vacum-Bottle.jpg",
-          sold: "12345 products sold",
-          title: "Stainless Steel Vacum Bottle ",
-          slug: "stainless-steel-vacum-bottle",
-          price: "$15.00",
-        },
-      ],
-    },
-    {
-      id: 4,
-      categoryName: "MIX",
-      image: "/Stainless Steel.png",
-      product: [
-        {
-          id: 1,
-          thumbnail: "/product/Stainless-Sublimation-Bottle-Bamboo.jpg",
-          sold: "12345 products sold",
-          title: "Stainless Sublimation Bottle ",
-          slug: "stainless-sublimation-bottle",
-          price: "$15.00",
-        },
-      ],
-    },
-  ];
-
-  const handleCategorySelect = (category: any) => {
-    setSelectedCategory(category);
-  };
-
-  const icons = [
-    {
-      id: 1,
-      title: "Eco-friendly Products",
-    },
-    {
-      id: 2,
-      title: "Sustainable Materials",
-    },
-    {
-      id: 3,
-      title: "Reusable Materials",
-    },
-    {
-      id: 4,
-      title: "Custom Orders",
-    },
-    {
-      id: 5,
-      title: "Quality Craftsmanship",
-    },
-    {
-      id: 6,
-      title: "Hospitality Industry Expert",
-    },
-  ];
-
   const [client, setClient] = useState<Client>(initialClientState);
   const [categories, setCategory] = useState<Categories>();
   const [selectedCategory, setSelectedCategory] = useState();
   const [products, SetProducts] = useState<Product>();
-  const [mixBestSellerProducts, SetMixBestSellerProducts] = useState([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const handleCategorySelect = (category: any) => {
+    setSelectedCategory(category);
+  };
 
   useEffect(() => {
     const getClientEntries = async () => {
@@ -228,7 +98,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex gap-[26px]">
-                {filteredProducts?.map((product, index) => {
+                {filteredProducts?.slice(0, 4).map((product, index) => {
                   const idAsset = product.fields.images[0].sys.id;
                   const assets = products?.includes.Asset;
                   const thumbnail = assets?.find(
@@ -351,102 +221,10 @@ export default function Home() {
           </section>
 
           {/* Section 7 : Icons */}
-          <section className="bg-[#E1DAD6] py-20">
-            <div className="mx-auto w-full max-w-7xl">
-              <div className="grid grid-cols-3 justify-items-center gap-10">
-                {icons.map((icon, index) => (
-                  <div
-                    key={index}
-                    className="flex w-[180px] flex-col items-center justify-center gap-4"
-                  >
-                    <div className="h-32 w-32 rounded-full bg-[#572304]"></div>
-                    <p className="text-center font-serif text-xl text-[#1E1E1E]">
-                      {icon.title}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+          <IconsSection />
 
           {/* Section 8 : Form */}
-          <section className="mx-auto w-full max-w-7xl space-y-12">
-            <h2 className="text-center font-serif text-5xl font-medium">
-              Custom Order Form
-            </h2>
-            <form className="flex items-center justify-center bg-white">
-              <div className="w-[45rem] space-y-8 rounded-lg border border-black p-16">
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="product" className="font-bold">
-                    Product
-                  </label>
-                  <input
-                    id="product"
-                    name="product"
-                    type="text"
-                    className="rounded-md border border-gray-500 px-4 py-3 focus:outline-none"
-                  />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="quantity" className="font-bold">
-                    Quantity
-                  </label>
-                  <input
-                    id="quantity"
-                    name="quantity"
-                    type="text"
-                    className="rounded-md border-[0.5px] border-gray-500 px-4 py-3 focus:outline-none"
-                  />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="printing-method" className="font-bold">
-                    Printing Method
-                  </label>
-                  <Select>
-                    <SelectTrigger className="rounded-md border-[0.5px] border-gray-500 px-4 py-3 text-start">
-                      <SelectValue placeholder="Printing Method" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectGroup>
-                        <SelectLabel>Printing Method</SelectLabel>
-                        <SelectItem value="Engrave">Engrave</SelectItem>
-                        <SelectItem value="UV-Print">UV Print</SelectItem>
-                        <SelectItem value="Silk-Print">Silk Print</SelectItem>
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="custom-detail" className="font-bold">
-                    Custom Detail
-                  </label>
-                  <input
-                    id="custom-detail"
-                    name="custom-detail"
-                    type="text"
-                    className="rounded-md border-[0.5px] border-gray-500 px-4 py-3 focus:outline-none"
-                  />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="shipping-address" className="font-bold">
-                    Shipping Address
-                  </label>
-                  <input
-                    id="shipping-address"
-                    name="shipping-address"
-                    type="text"
-                    className="rounded-md border-[0.5px] border-gray-500 px-4 py-3 focus:outline-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="bg-[#463B34] px-16 py-3 text-white"
-                >
-                  CUSTOMIZE
-                </button>
-              </div>
-            </form>
-          </section>
+          <CustomOrderSection />
         </>
       )}
     </main>
