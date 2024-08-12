@@ -2,7 +2,6 @@
 import { Categories } from "@/types/categories.types";
 import { Client, initialClientState } from "@/types/client.types";
 import { Product } from "@/types/product.types";
-import { getEntries } from "@/utils/contenful/get-entries";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -10,8 +9,9 @@ import CarouselClient from "./components/CarouselClient";
 import CustomOrderSection from "./components/CustomOrderSection";
 import IconsSection from "./components/IconsSection";
 import LoadingSpinner from "./components/LoadingSpinner ";
+import { getEntries } from "@/utils/contenful/get-entries";
 
-export default function Home() {
+export default function Home({}) {
   const [client, setClient] = useState<Client>(initialClientState);
   const [categories, setCategory] = useState<Categories>();
   const [selectedCategory, setSelectedCategory] = useState();
