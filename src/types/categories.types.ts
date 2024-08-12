@@ -1,4 +1,4 @@
-export interface Client {
+export interface Categories {
   includes: {
     Asset: {
       fields: {
@@ -34,8 +34,8 @@ export interface Client {
   };
   items: {
     fields: {
-      clientName: string;
-      logoClient: {
+      title: string;
+      image: {
         sys: {
           id: string;
           linkType: string;
@@ -68,14 +68,3 @@ export interface Client {
     };
   }[];
 }
-
-export interface CarouselClientProps {
-  clients?: Client;
-}
-
-export const initialClientState: Client = {
-  includes: {
-    Asset: [],
-  },
-  items: [],
-};
