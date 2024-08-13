@@ -18,7 +18,6 @@ const BestSellerSection: React.FC<BestSellerSectionProps> = ({
     categories?.items[0]?.sys.id,
   );
 
-  console.log("check products : ", products);
 
   const handleCategorySelect = (categoryId: string) => {
     setSelectedCategory(categoryId);
