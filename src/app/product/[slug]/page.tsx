@@ -1,7 +1,7 @@
 "use client";
 import CarouselClient from "@/app/components/CarouselClient";
-import CustomOrderSection from "@/app/components/CustomOrderSection";
-import IconsSection from "@/app/components/IconsSection";
+import CustomOrderSection from "@/app/components/section/CustomOrderSection";
+import IconsSection from "@/app/components/section/IconsSection";
 import { Client, initialClientState } from "@/types/client.types";
 import { getEntries } from "@/utils/contenful/get-entries";
 import { useParams } from "next/navigation";

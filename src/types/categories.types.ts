@@ -1,70 +1,54 @@
+// Asset Interface
+interface Asset {
+  fields: {
+    description: string;
+    file: {
+      url: string;
+    };
+    title: string;
+  };
+  metadata: Record<string, unknown>;
+  sys: {
+    createdAt: string;
+    environment: SysLink;
+    id: string;
+    space: SysLink;
+    type: string;
+    updatedAt: string;
+  };
+}
+
+// SysLink Interface
+interface SysLink {
+  id: string;
+  linkType: string;
+  type: string;
+}
+
+// CategoryItem Interface
+interface CategoryItem {
+  fields: {
+    title: string;
+    image: {
+      sys: SysLink;
+    };
+    slug: string;
+  };
+  sys: {
+    contentType: Record<string, unknown>;
+    createdAt: string;
+    environment: SysLink;
+    id: string;
+    space: SysLink;
+    type: string;
+    updatedAt: string;
+  };
+}
+
+// Categories Interface
 export interface Categories {
   includes: {
-    Asset: {
-      fields: {
-        description: string;
-        file: {
-          url: string;
-        };
-        title: string;
-      };
-      metadata: {};
-      sys: {
-        createdAt: string;
-        environment: {
-          sys: {
-            id: string;
-            linkType: string;
-            type: string;
-          };
-          id: string;
-        };
-        id: string;
-        space: {
-          sys: {
-            id: string;
-            linkType: string;
-            type: string;
-          };
-        };
-        type: string;
-        updatedAt: string;
-      };
-    }[];
+    Asset: Asset[];
   };
-  items: {
-    fields: {
-      title: string;
-      image: {
-        sys: {
-          id: string;
-          linkType: string;
-          type: string;
-        };
-      };
-      slug: string;
-    };
-    sys: {
-      contentType: {};
-      createdAt: string;
-      environment: {
-        sys: {
-          id: string;
-          linkType: string;
-          type: string;
-        };
-        id: string;
-      };
-      id: string;
-      space: {
-        sys: {
-          id: string;
-          linkType: string;
-          type: string;
-        };
-      };
-      type: string;
-      updatedAt: string;
-    };
-  }[];
+  items: CategoryItem[];
 }
