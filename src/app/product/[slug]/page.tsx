@@ -1,17 +1,11 @@
-"use client";
 import CarouselClient from "@/app/components/CarouselClient";
 import CustomOrderSection from "@/app/components/section/CustomOrderSection";
 import IconsSection from "@/app/components/section/IconsSection";
 import { getEntries } from "@/utils/contenful/get-entries";
 import Image from "next/image";
-import { useParams } from "next/navigation";
 
 const ProductSlugpage = async () => {
   const client = await getEntries("client");
-
-  const params = useParams();
-  const { slug } = params;
-  console.log("check params", params);
 
   return (
     <main>
