@@ -7,10 +7,10 @@ import IconsSection from "./components/section/IconsSection";
 import BestSellerSection from "./components/section/BestSellerSection";
 import { Product } from "@/types/product.types";
 
-export default async function Home({}) {
+const Home = async () => {
   const client = await getEntries("client");
   const categories: Categories = await getEntries("category");
-  const products: Product = await getEntries("product")
+  const products: Product = await getEntries("product");
 
   return (
     <main className="mb-10 space-y-10 bg-[#f4f4f4]">
@@ -33,8 +33,7 @@ export default async function Home({}) {
       <CarouselClient clients={client} />
 
       {/* Section 3: Best Seller */}
-      <BestSellerSection products={products} categories={categories}/>
-     
+      <BestSellerSection products={products} categories={categories} />
 
       {/* Section 4 : Product Categories */}
       <section className="mx-auto w-full max-w-7xl space-y-10 py-20">
@@ -125,4 +124,6 @@ export default async function Home({}) {
       <CustomOrderSection />
     </main>
   );
-}
+};
+
+export default Home;
