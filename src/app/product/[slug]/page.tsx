@@ -1,4 +1,3 @@
-"use client";
 import CarouselClient from "@/app/components/CarouselClient";
 import CustomOrderSection from "@/app/components/section/CustomOrderSection";
 import IconsSection from "@/app/components/section/IconsSection";
@@ -8,23 +7,12 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const ProductSlugpage = () => {
-  const [client, setClient] = useState<Client>(initialClientState);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+const ProductSlugpage = async () => {
+  const client = await getEntries("client");
 
   const params = useParams();
   const { slug } = params;
   console.log("check params", params);
-
-  useEffect(() => {
-    const getClientEntries = async () => {
-      setIsLoading(true);
-      const entries = await getEntries("client");
-      setClient(entries);
-    };
-
-    getClientEntries();
-  }, []);
 
   return (
     <main>
