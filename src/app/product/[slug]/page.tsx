@@ -2,9 +2,10 @@ import CarouselClient from "@/app/components/CarouselClient";
 import CustomOrderSection from "@/app/components/section/CustomOrderSection";
 import IconsSection from "@/app/components/section/IconsSection";
 import { getEntries } from "@/utils/contenful/get-entries";
-import Image from "next/image";
 
-const ProductSlugpage = async () => {
+const ProductSlugpage = async ({ params }: any) => {
+  console.log(params);
+
   const client = await getEntries("client");
 
   return (
@@ -13,8 +14,8 @@ const ProductSlugpage = async () => {
       <div className="mx-auto my-8 w-full max-w-6xl">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {/* Product Image Section */}
-          <div className="space-y-4">
-            <div className="overflow-hidden rounded-lg">
+          {/* <div className="space-y-4">
+            <div className="relative h-[26rem] w-full overflow-hidden rounded-lg">
               <Image
                 fill
                 src="/product/Stainless-Sublimation-Bottle-Bamboo.jpg"
@@ -54,7 +55,7 @@ const ProductSlugpage = async () => {
                 className="h-20 w-20 rounded-lg object-cover"
               />
             </div>
-          </div>
+          </div> */}
 
           {/* Product Info Section */}
           <div>
