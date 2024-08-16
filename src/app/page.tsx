@@ -36,37 +36,39 @@ const Home = async () => {
       <BestSellerSection products={products} categories={categories} />
 
       {/* Section 4 : Product Categories */}
-      <section className="mx-auto w-full max-w-7xl space-y-10 py-20">
+      <section className="mx-auto w-full max-w-7xl space-y-5 my-20">
         <h2 className="text-center font-serif text-5xl font-medium">
           Product Categories
         </h2>
 
-        <div className="flex flex-wrap items-center justify-center justify-items-center gap-x-20 gap-y-12">
-          {categories?.items.map((category, index: number) => {
-            const idAsset = category.fields.image.sys.id;
-            const assets = categories.includes.Asset;
-            const thumbnail = assets.find(
-              (asset: any) => asset.sys.id === idAsset,
-            );
-            return (
-              <div
-                key={index}
-                className="animate-fadeIn transform space-y-4 transition-transform duration-500 ease-in-out hover:-translate-y-2"
-              >
-                <div className="relative h-[225px] w-[425px]">
-                  <Image
-                    src={`https:${thumbnail?.fields.file.url}`}
-                    fill
-                    className="rounded-md object-cover"
-                    alt={category.fields.title}
-                  />
+        <div className="flex flex-wrap items-center justify-center justify-items-center">
+          <div className="flex w-[820px] flex-wrap gap-5 gap-x-[60px]">
+            {categories?.items.map((category, index: number) => {
+              const idAsset = category.fields.image.sys.id;
+              const assets = categories.includes.Asset;
+              const thumbnail = assets.find(
+                (asset: any) => asset.sys.id === idAsset,
+              );
+              return (
+                <div
+                  key={index}
+                  className="animate-fadeIn transform space-y-4 transition-transform duration-500 ease-in-out hover:-translate-y-2"
+                >
+                  <div className="relative h-[180px] w-[380px]">
+                    <Image
+                      src={`https:${thumbnail?.fields.file.url}`}
+                      fill
+                      className="rounded-md object-cover"
+                      alt={category.fields.title}
+                    />
+                  </div>
+                  <h4 className="text-center font-sans text-xl font-medium">
+                    {category.fields.title}
+                  </h4>
                 </div>
-                <h4 className="text-center font-sans text-xl font-medium">
-                  {category.fields.title}
-                </h4>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </section>
 

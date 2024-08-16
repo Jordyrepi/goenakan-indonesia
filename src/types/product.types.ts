@@ -78,3 +78,64 @@ export interface Product {
     };
   }[];
 }
+
+export interface ProductDetails {
+  sys: {
+    type: string;
+  };
+  items: {
+    sys: {
+      space: {
+        sys: {
+          id: string;
+          linkType: string;
+          type: string;
+        };
+      };
+      id: string;
+      type: string;
+      createdAt: string;
+      updatedAt: string;
+      environment: {
+        sys: {
+          id: string;
+          linkType: string;
+          type: string;
+        };
+      };
+      revision: number;
+      contentType: {
+        sys: {
+          id: string;
+          linkType: string;
+          type: string;
+        };
+      };
+      locale: string;
+    };
+    fields: {
+      title: string;
+      slug: string;
+      price: string;
+      images: {
+        sys: {
+          id: string;
+          linkType: string;
+          type: string;
+        }; 
+      }[];
+      category: {
+        sys: {
+          id: string;
+          linkType: string;
+          type: string;
+        };
+      };
+      bestSeller?: boolean;
+      description: string;
+      capacity?: number;
+      
+    };
+  }[];
+  includes: {};
+}

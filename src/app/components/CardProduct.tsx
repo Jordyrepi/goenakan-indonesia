@@ -1,7 +1,6 @@
 import React from 'react'
 
 const CardProduct = () => {
-    const {} = React
   return (
     <div>CardProduct</div>
   )

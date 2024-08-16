@@ -30,9 +30,9 @@ const BestSellerSection: React.FC<BestSellerSectionProps> = ({
   });
 
   return (
-    <section className="mx-auto w-full max-w-7xl pt-20">
-      <div className="flex flex-col items-center justify-center gap-y-16">
-        <div className="flex flex-col items-center justify-center gap-y-10">
+    <section className="mx-auto w-full max-w-7xl">
+      <div className="flex flex-col items-center justify-center gap-y-7">
+        <div className="flex flex-col items-center justify-center gap-y-5">
           <h2 className="font-serif text-5xl font-medium">Our Best Sellers</h2>
 
           {/* Category Buttons */}
@@ -62,14 +62,14 @@ const BestSellerSection: React.FC<BestSellerSectionProps> = ({
               <Link
                 href={`/product/${product.fields.slug}`}
                 key={index}
-                className="rounded-lg border p-4 shadow-md"
+                className="rounded-lg border shadow-md"
               >
-                <div className="relative h-[250px] w-[250px]">
+                <div className="relative h-[200px] ">
                   <Image
                     src={`https:${thumbnail?.fields.file.url}`}
                     alt={product.fields.title}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
                 <div className="w-[250px] space-y-4 p-4">

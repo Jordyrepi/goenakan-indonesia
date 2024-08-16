@@ -1,12 +1,17 @@
-import CarouselClient from "@/app/components/CarouselClient";
-import CustomOrderSection from "@/app/components/section/CustomOrderSection";
-import IconsSection from "@/app/components/section/IconsSection";
-import { getEntries } from "@/utils/contenful/get-entries";
+import { getEntries, getEntriesBySlug } from "@/utils/contenful/get-entries";
+import GalleryImagesProduct from "./components/GalleryImagesProduct";
+import { ProductDetails } from "@/types/product.types";
 
 const ProductSlugpage = async ({ params }: any) => {
-  console.log(params);
+  const product: ProductDetails = await getEntriesBySlug(
+    "product",
+    `${params.slug}`,
+  );
 
-  const client = await getEntries("client");
+  const { title, price, images, description, capacity } =
+    product.items[0].fields;
+
+  console.log(product.items[0].fields);
 
   return (
     <main>
@@ -56,24 +61,25 @@ const ProductSlugpage = async ({ params }: any) => {
               />
             </div>
           </div> */}
+          <GalleryImagesProduct />
 
           {/* Product Info Section */}
           <div>
-            <h1 className="text-3xl font-bold">Stainless Steel Water Bottle</h1>
-            <p className="mt-2 text-gray-700">
-              Introducing the Goenakan Indonesia Ceramic Coating Inner Water
-              Bottle, the perfect fusion of style and functionality. Crafted
-              with precision, this sports bottle and drink tumbler is designed
-              to meet your hydration needs while making a bold statement.
-            </p>
+            <h1 className="text-3xl font-bold">{title}</h1>
+            <p className="mt-2 text-gray-700">{description}</p>
             <div className="mt-4 flex items-center">
               <span className="rounded bg-gray-200 px-3 py-3 text-sm font-medium text-[#7A543E]">
-                12345 products sold
+                products sold
               </span>
             </div>
-            <p className="mt-4 text-2xl font-bold">$15 USD</p>
-            <p className="mt-2 font-bold">Capacity: 0.5L</p>
-
+            <p className="mt-4 text-2xl font-bold">${price} USD</p>
+            {capacity ? (
+              <p className="mt-2 font-bold">Capacity: {capacity}L</p>
+            ) : (
+              <p className="mt-2 font-bold text-gray-500">
+                Capacity information not available
+              </p>
+            )}
             {/* Custom Personalization Option */}
             <div className="mt-4">
               <p className="font-medium text-gray-700">
@@ -106,12 +112,6 @@ const ProductSlugpage = async ({ params }: any) => {
           </div>
         </div>
       </div>
-
-      <CarouselClient clients={client} />
-      {/* Section Icons */}
-      <IconsSection />
-      {/* Custom FOrm */}
-      <CustomOrderSection />
     </main>
   );
 };
