@@ -11,7 +11,7 @@ const ProductSlugpage = async ({ params }: any) => {
   const { title, price, images, description, capacity } =
     product.items[0].fields;
 
-  console.log(product.items[0].fields);
+  // console.log(product.items[0].fields);
 
   return (
     <main>
@@ -63,7 +63,6 @@ const ProductSlugpage = async ({ params }: any) => {
           </div> */}
           <GalleryImagesProduct />
 
-          {/* Product Info Section */}
           <div>
             <h1 className="text-3xl font-bold">{title}</h1>
             <p className="mt-2 text-gray-700">{description}</p>
@@ -73,14 +72,9 @@ const ProductSlugpage = async ({ params }: any) => {
               </span>
             </div>
             <p className="mt-4 text-2xl font-bold">${price} USD</p>
-            {capacity ? (
+            {capacity && (
               <p className="mt-2 font-bold">Capacity: {capacity}L</p>
-            ) : (
-              <p className="mt-2 font-bold text-gray-500">
-                Capacity information not available
-              </p>
             )}
-            {/* Custom Personalization Option */}
             <div className="mt-4">
               <p className="font-medium text-gray-700">
                 Custom Personalization:
@@ -95,7 +89,6 @@ const ProductSlugpage = async ({ params }: any) => {
               </div>
             </div>
 
-            {/* Quantity Selector */}
             <div className="mt-4">
               <p className="font-medium text-gray-700">Quantity:</p>
               <input
@@ -105,7 +98,6 @@ const ProductSlugpage = async ({ params }: any) => {
               />
             </div>
 
-            {/* Shop Now Button */}
             <button className="mt-6 w-[20rem] rounded-md bg-[#463B34] py-3 font-semibold text-white transition">
               SHOP NOW
             </button>

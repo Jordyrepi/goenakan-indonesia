@@ -36,7 +36,7 @@ const Home = async () => {
       <BestSellerSection products={products} categories={categories} />
 
       {/* Section 4 : Product Categories */}
-      <section className="mx-auto w-full max-w-7xl space-y-5 my-20">
+      <section className="mx-auto my-20 w-full max-w-7xl space-y-5">
         <h2 className="text-center font-serif text-5xl font-medium">
           Product Categories
         </h2>
