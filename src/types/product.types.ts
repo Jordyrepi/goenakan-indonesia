@@ -34,6 +34,7 @@ export interface Product {
   };
   items: {
     fields: {
+      description: string;
       bestSeller: boolean;
       category: {
         sys: {
@@ -122,7 +123,7 @@ export interface ProductDetails {
           id: string;
           linkType: string;
           type: string;
-        }; 
+        };
       }[];
       category: {
         sys: {
@@ -134,8 +135,30 @@ export interface ProductDetails {
       bestSeller?: boolean;
       description: string;
       capacity?: number;
-      
     };
   }[];
   includes: {};
+}
+
+export interface ProductCardProps {
+  description: string;
+  bestSeller: boolean;
+  category: {
+    sys: {
+      id: string;
+      linkType: string;
+      type: string;
+    };
+  };
+  images: {
+    sys: {
+      id: string;
+      linkType: string;
+      type: string;
+    };
+  }[];
+  price: string;
+  productsThatHaveBeenSold: string;
+  slug: string;
+  title: string;
 }

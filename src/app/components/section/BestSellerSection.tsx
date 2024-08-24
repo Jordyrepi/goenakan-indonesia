@@ -60,17 +60,11 @@ const BestSellerSection: React.FC<BestSellerSectionProps> = ({
             const idAsset = product.fields.images[0].sys.id;
             const assets = products?.includes.Asset;
             const thumbnail = assets?.find((asset) => asset.sys.id === idAsset);
-
             return (
               <CardProduct
                 key={index}
-                slug={product.fields.slug}
                 thumbnailUrl={thumbnail?.fields.file.url || ""}
-                title={product.fields.title}
-                productsThatHaveBeenSold={
-                  product.fields.productsThatHaveBeenSold
-                }
-                price={product.fields.price}
+                product={product.fields}
               />
             );
           })}

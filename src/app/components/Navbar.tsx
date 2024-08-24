@@ -1,13 +1,5 @@
 "use client";
 
-import {
-  ListItem,
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/NavigationMenu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/Sheet";
 import Image from "next/image";
 import Link from "next/link";
@@ -40,31 +32,6 @@ const Navbar = () => {
     }, 1000);
   };
 
-  const components: { title: string; href: string; description: string }[] = [
-    {
-      title: "Glass Products",
-      href: "/docs/primitives/alert-dialog",
-      description:
-        "A modal dialog that interrupts the user with important content and expects a response.",
-    },
-    {
-      title: "Wooden Products",
-      href: "/docs/primitives/hover-card",
-      description:
-        "For sighted users to preview content available behind a link.",
-    },
-    {
-      title: "Stainless Steel Products",
-      href: "/docs/primitives/progress",
-      description:
-        "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-    },
-    {
-      title: "Bamboo Products",
-      href: "/docs/primitives/scroll-area",
-      description: "Visually or semantically separates content.",
-    },
-  ];
   return (
     <header
       className={`duration-400 sticky top-0 z-50 transition ease-in-out ${
@@ -85,25 +52,11 @@ const Navbar = () => {
                 alt="logo navbar"
               />
             </div>
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>Category</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                      {components.map((component) => (
-                        <ListItem
-                          key={component.title}
-                          title={component.title}
-                          href={component.href}
-                        ></ListItem>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
           </div>
+          <Link href={"/"}>Products</Link>
+          <Link href={"/"}>About us</Link>
+          <Link href={"/"}>Contact us</Link>
+          <Link href={"/article"}>Article</Link>
           <div>search</div>
         </div>
         <div className="flex w-full items-center justify-between py-4 md:hidden">
