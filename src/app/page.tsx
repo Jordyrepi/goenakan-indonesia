@@ -23,7 +23,7 @@ const Home = async () => {
             Born out of a deep commitment to eco-friendly practices we redifened
             everyday utensils and drinkware
           </p>
-          <button className="bg-[#463B34] px-10 py-4 text-white hover:bg-[#6f584a] md:px-16">
+          <button className="bg-[#463B34] px-10 py-4 text-white hover:bg-[#6f584a] md:px-16 rounded-sm">
             SHOP NOW
           </button>
         </div>
@@ -49,6 +49,7 @@ const Home = async () => {
               const thumbnail = assets.find(
                 (asset: any) => asset.sys.id === idAsset,
               );
+
               return (
                 <div
                   key={index}
@@ -84,7 +85,7 @@ const Home = async () => {
           <h2 className="font-serif text-4xl">
             Best Utensils from Best Materials
           </h2>
-          <button className="rounded-sm bg-[#463B34] px-16 py-3 text-[#f4f4f4]">
+          <button className="rounded-sm bg-[#463B34] px-16 py-3 text-[#f4f4f4] ">
             SHOP NOW
           </button>
         </div>
@@ -112,14 +113,14 @@ const Home = async () => {
               focus on offering reusable solutions that reduce waste and promote
               sustainability.
             </p>
-            <button className="bg-[#463B34] px-12 py-3 text-white">
+            <button className="bg-[#463B34] px-12 py-3 text-white rounded-sm">
               About Us
             </button>
           </div>
         </div>
       </section>
 
-      {/* Section 7 : Icons */}
+      {/* Section 7 : Why Choose Us Icons */}
       <IconsSection />
 
       {/* Section 8 : Form */}

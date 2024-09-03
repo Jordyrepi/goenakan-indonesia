@@ -1,4 +1,5 @@
 import { icons } from "@/utils/dummy-data/icons";
+import Image from "next/image";
 import React from "react";
 
 const IconsSection = () => {
@@ -11,7 +12,9 @@ const IconsSection = () => {
               key={index}
               className="flex w-[180px] flex-col items-center justify-center gap-4"
             >
-              <div className="h-32 w-32 rounded-full bg-[#572304]"></div>
+              <div className="relative h-32 w-32 rounded-full ">
+                <Image src={icon.icon} alt={icon.title} fill className="object-cover"/>
+              </div>
               <p className="text-center font-serif text-xl text-[#1E1E1E]">
                 {icon.title}
               </p>

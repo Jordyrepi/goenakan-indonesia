@@ -1,9 +1,43 @@
+import { FooterTypes } from "@/types/footer.types";
+import { getEntries } from "@/utils/contenful/get-entries";
+import { createWhatsAppLink, formatContact } from "@/utils/format-contact";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaShippingFast } from "react-icons/fa";
 
-const Footer = () => {
+const Footer = async () => {
+  const footer: FooterTypes = await getEntries("footer");
+
+  const contact1 = footer.items[0].fields?.contactPerson1
+    ? formatContact(
+        footer.items[0].fields.contactPerson1,
+        footer.items[0].fields.contactPersonName1,
+      )
+    : "";
+  const contact2 = footer.items[0].fields?.contactPerson2
+    ? formatContact(
+        footer.items[0].fields.contactPerson2,
+        footer.items[0].fields.contactPersonName2,
+      )
+    : "";
+  const contact3 = footer.items[0].fields?.contactPerson3
+    ? formatContact(
+        footer.items[0].fields.contactPerson3,
+        footer.items[0].fields.contactPersonName3,
+      )
+    : "";
+
+  const contact1WhatsAppLink = footer.items[0].fields?.contactPerson1
+    ? createWhatsAppLink(footer.items[0].fields.contactPerson1)
+    : "";
+  const contact2WhatsAppLink = footer.items[0].fields?.contactPerson2
+    ? createWhatsAppLink(footer.items[0].fields.contactPerson2)
+    : "";
+  const contact3WhatsAppLink = footer.items[0].fields?.contactPerson3
+    ? createWhatsAppLink(footer.items[0].fields.contactPerson3)
+    : "";
+
   return (
     <footer>
       <div className="h-16 bg-black">
@@ -34,15 +68,14 @@ const Footer = () => {
           </span>
         </div>
       </div>
-      <div className="mx-auto my-10 w-full max-w-6xl">
+      <div className="mx-auto my-10 w-full max-w-7xl">
         <div className="flex gap-10">
           <div className="w-[30rem] space-y-5 font-medium">
-            <div className="relative h-[10rem] w-[10rem]">
+            <div className="relative h-[6rem]">
               <Image
-                src={"/logo footer.png"}
+                src={"/logo/Goenakan Logo Text Brown-01.svg"}
                 alt="logo footer"
                 fill
-                className="object-cover"
               />
             </div>
             <p>
@@ -54,30 +87,31 @@ const Footer = () => {
             </p>
             <div className="space-y-3">
               <p>Goenakan Indonesia</p>
-              <p>
-                Darmo Baru Barat I no. 35, Sonokwijenan, Sukomanunggal,
-                Surabaya, Jawa Timur, Indonesia - 60189
-              </p>
+              <p>{footer.items[0].fields?.location}</p>
             </div>
             <div className="space-y-3">
-              <Link className="flex" href={"/"}>
-                <p className="text-blue-600">+6281231659960</p>
-                <p> (Marissa)</p>
-              </Link>
-              <Link className="flex" href={"/"}>
-                <p className="text-blue-600">+6281231659960</p>
-                <p> (Marissa)</p>
-              </Link>
+              {contact1 && (
+                <Link href={contact1WhatsAppLink} className="flex">
+                  <p>{contact1}</p>
+                </Link>
+              )}
+              {contact2 && (
+                <Link href={contact1WhatsAppLink} className="flex">
+                  <p>{contact2}</p>
+                </Link>
+              )}
+              {contact3 && (
+                <Link href={contact1WhatsAppLink} className="flex">
+                  <p>{contact3}</p>
+                </Link>
+              )}
             </div>
           </div>
           <div className="w-[30rem] space-y-5 py-16">
             <h1 className="text-3xl font-medium">INFORMATION</h1>
             <ul className="space-y-4">
               <li>
-                <Link href={"/"}>Shop All</Link>
-              </li>
-              <li>
-                <Link href={"/about-us"}>About Us</Link>
+                <Link href={"/"}>Show All</Link>
               </li>
               <li>
                 <Link href={"/"}>Stainless Steel Products</Link>
@@ -100,24 +134,46 @@ const Footer = () => {
             <h1 className="text-3xl font-medium">SUPPORT</h1>
             <ul className="space-y-4">
               <li>
-                <Link href={"/"}>Contact Us</Link>
+                <Link href={"/about-us"}>About Us</Link>
               </li>
               <li>
-                <Link href={"/"}>Search</Link>
+                <Link href={"/"}>Contact Us</Link>
               </li>
               <li>
                 <Link href={"/"}>Terms of Services</Link>
               </li>
-              <li>
-                <Link href={"/"}>Refund Policy</Link>
-              </li>
-              <li>
-                <Link href={"/"}>Shipping Policy</Link>
-              </li>
-              <li>
-                <Link href={"/"}>Privacy Policy</Link>
-              </li>
             </ul>
+
+            <div className="flex gap-x-5">
+              {footer.items[0].fields.linkedInLink && (
+                <a href={footer.items[0].fields.linkedInLink} target="_blank">
+                  <div className="relative h-10 w-10">
+                    <Image src={"/icons/linkedin.svg"} alt="Linkedin" fill />
+                  </div>
+                </a>
+              )}
+              {footer.items[0].fields.facebookLink && (
+                <a href={footer.items[0].fields.facebookLink} target="_blank">
+                  <div className="relative h-10 w-10">
+                    <Image src={"/icons/facebook.svg"} alt="Linkedin" fill />
+                  </div>
+                </a>
+              )}
+              {footer.items[0].fields.instagramLink && (
+                <a href={footer.items[0].fields.instagramLink} target="_blank">
+                  <div className="relative h-10 w-10">
+                    <Image src={"/icons/instagram.svg"} alt="Linkedin" fill />
+                  </div>
+                </a>
+              )}
+              {footer.items[0].fields.tiktokLink && (
+                <a href={footer.items[0].fields.tiktokLink} target="_blank">
+                  <div className="relative h-10 w-10">
+                    <Image src={"/icons/tiktok.svg"} alt="Linkedin" fill />
+                  </div>
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </div>

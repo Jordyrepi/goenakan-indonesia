@@ -31,6 +31,51 @@ export interface Product {
         updatedAt: string;
       };
     }[];
+    Entry: {
+      fields: {
+        image: {
+          sys: {
+            id: string;
+            linkType: string;
+            type: string;
+          };
+        };
+        slug: string;
+        title: string;
+      };
+      metadata: {
+        tags: {}[];
+      };
+      sys: {
+        contentType: {
+          sys: {
+            id: string;
+            linkType: string;
+            type: string;
+          };
+        };
+        createdAt: string;
+        environment: {
+          sys: {
+            id: string;
+            linkType: string;
+            type: string;
+          };
+        };
+        id: string;
+        locale: string;
+        revision: string;
+        space: {
+          sys: {
+            id: string;
+            linkType: string;
+            type: string;
+          };
+        };
+        type: string;
+        updatedAt: string;
+      };
+    }[];
   };
   items: {
     fields: {

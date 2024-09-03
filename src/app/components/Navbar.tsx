@@ -47,8 +47,8 @@ const Navbar = () => {
             <div className="relative h-[70px] w-[190px]">
               <Image
                 fill
-                className="object-cover"
-                src={"/company-logo.png"}
+                className=""
+                src={"/logo/Goenakan Logo Text Brown-01.svg"}
                 alt="logo navbar"
               />
             </div>

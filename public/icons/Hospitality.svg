@@ -1,0 +1,32 @@
+<svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="75" cy="75" r="73.5" stroke="#572304" stroke-width="3"/>
+<path d="M112.5 109.5H37.5V114.5H112.5V109.5Z" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M40 109.5V39.5H70V109.5" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M80 109.5V39.5H110V109.5" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M40 44.5H70" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M40 57H70" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M40 62H70" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M40 74.5H70" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M40 79.5H70" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M40 92H70" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M50 109.5V104.5C50 103.174 50.5268 101.902 51.4645 100.964C52.4021 100.027 53.6739 99.5 55 99.5C56.3261 99.5 57.5979 100.027 58.5355 100.964C59.4732 101.902 60 103.174 60 104.5V109.5" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M55 44.5V57" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M55 62V74.5" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M55 79.5V92" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M80 44.5H110" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M80 57H110" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M80 62H110" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M80 74.5H110" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M80 79.5H110" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M80 92H110" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M90 109.5V104.5C90 103.174 90.5268 101.902 91.4645 100.964C92.4021 100.027 93.6739 99.5 95 99.5C96.3261 99.5 97.5979 100.027 98.5355 100.964C99.4732 101.902 100 103.174 100 104.5V109.5" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M95 44.5V57" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M95 62V74.5" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M95 79.5V92" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M70 89.5H80" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M70 84.5H80" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M70 72H80" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M70 67H80" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M70 54.5H80" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+<path d="M70 49.5H80" stroke="#572304" stroke-width="2" stroke-linejoin="round"/>
+</svg>

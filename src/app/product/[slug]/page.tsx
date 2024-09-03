@@ -11,56 +11,12 @@ const ProductSlugpage = async ({ params }: any) => {
   const { title, price, images, description, capacity } =
     product.items[0].fields;
 
-  // console.log(product.items[0].fields);
-
   return (
     <main>
       {/* Product Detail Section */}
       <div className="mx-auto my-8 w-full max-w-6xl">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {/* Product Image Section */}
-          {/* <div className="space-y-4">
-            <div className="relative h-[26rem] w-full overflow-hidden rounded-lg">
-              <Image
-                fill
-                src="/product/Stainless-Sublimation-Bottle-Bamboo.jpg"
-                alt="Stainless Steel Water Bottle"
-                className="h-[26rem] w-full object-cover"
-              />
-            </div>
-            <div className="flex justify-center gap-x-6">
-              <Image
-                fill
-                src="/product/Stainless-Sublimation-Bottle-Bamboo.jpg"
-                alt="Thumbnail 1"
-                className="h-20 w-20 rounded-lg object-cover"
-              />
-              <Image
-                fill
-                src="/product/Stainless-Sublimation-Bottle-Bamboo.jpg"
-                alt="Thumbnail 1"
-                className="h-20 w-20 rounded-lg object-cover"
-              />
-              <Image
-                fill
-                src="/product/Stainless-Sublimation-Bottle-Bamboo.jpg"
-                alt="Thumbnail 2"
-                className="h-20 w-20 rounded-lg object-cover"
-              />
-              <Image
-                fill
-                src="/product/Stainless-Sublimation-Bottle-Bamboo.jpg"
-                alt="Thumbnail 3"
-                className="h-20 w-20 rounded-lg object-cover"
-              />
-              <Image
-                fill
-                src="/product/Stainless-Sublimation-Bottle-Bamboo.jpg"
-                alt="Thumbnail 4"
-                className="h-20 w-20 rounded-lg object-cover"
-              />
-            </div>
-          </div> */}
           <GalleryImagesProduct />
 
           <div>

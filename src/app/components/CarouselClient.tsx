@@ -42,7 +42,6 @@ const CarouselClient: React.FC<CarouselClientProps> = ({ clients }) => {
                   fill
                   sizes="fit"
                   quality={100}
-                  className="object-contain"
                 />
               </div>
             </CarouselItem>
