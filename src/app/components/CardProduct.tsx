@@ -37,7 +37,7 @@ const CardProduct: React.FC<CardProductProps> = ({
       </div>
       <div className="p-8">
         <div className="space-y-1">
-          <span className="font-sans">{category}</span>
+          <span className="font-sans line-clamp-1">{category}</span>
           <h5 className="line-clamp-1 text-lg font-medium">{product.title}</h5>
           <p>{`${product.long} x ${product.width} cm`}</p>
         </div>

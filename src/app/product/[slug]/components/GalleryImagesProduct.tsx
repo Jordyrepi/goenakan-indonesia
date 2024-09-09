@@ -11,10 +11,8 @@ interface GalleryImagesProductProps {
 const GalleryImagesProduct: React.FC<GalleryImagesProductProps> = ({
   product,
 }) => {
-  console.log("check product details : ", product);
   const [selectedImage, setSelectedImage] = useState("");
 
-  // Extracting the thumbnail URLs
   useEffect(() => {
     if (
       product?.items[0].fields?.images &&

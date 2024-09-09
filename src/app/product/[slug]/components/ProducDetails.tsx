@@ -70,7 +70,7 @@ const ProducDetails: React.FC<GalleryImagesProductProps> = ({ product }) => {
       <button className="mt-6 w-[20rem] rounded-md bg-[#463B34] py-3 font-semibold text-white transition">
         <a
           target="_blank"
-          href={`https://wa.me/082251110493?text=${text}`}
+          href={`https://wa.me/082251110493/?text=${text}`}
         >
           Send via WhatsApp
         </a>

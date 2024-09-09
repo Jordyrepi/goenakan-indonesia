@@ -9,25 +9,22 @@ import PaginationComp from "./Pagination";
 interface ProductsSectionProps {
   products: Product;
   categories: Categories;
-  totalPages: number
+  totalPages: number;
 }
 
 const ProductsSection: React.FC<ProductsSectionProps> = ({
   products,
   categories,
-  totalPages
+  totalPages,
 }) => {
-  const [selectedCategoryId, setSelectedCategoryId] = useState<string>(""); // Using sys.id for category
-
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string>("");
 
   const handleCategoryChange = (categoryId: string) => {
-    setSelectedCategoryId(categoryId); // Set selected category's sys.id
+    setSelectedCategoryId(categoryId);
   };
 
-  
-
   return (
-    <div>
+    <section className="space-y-10 py-10">
       <div className="mr-5 flex justify-end">
         <FilterProducts
           categories={categories}
@@ -57,8 +54,8 @@ const ProductsSection: React.FC<ProductsSectionProps> = ({
         })}
       </div>
 
-      <PaginationComp totalPages={totalPages}  />
-    </div>
+      <PaginationComp totalPages={totalPages} />
+    </section>
   );
 };
 
