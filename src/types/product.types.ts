@@ -187,10 +187,91 @@ export interface ProductDetails {
       };
       bestSeller?: boolean;
       description: string;
-      capacity?: number;
+      productsThatHaveBeenSold: string;
+      isAvailable: boolean;
+      long: number;
+      width: number;
+      capacity: number;
     };
   }[];
-  includes: {};
+  includes: {
+    Asset: {
+      fields: {
+        description: string;
+        file: {
+          url: string;
+        };
+        title: string;
+      };
+      metadata: {};
+      sys: {
+        createdAt: string;
+        environment: {
+          sys: {
+            id: string;
+            linkType: string;
+            type: string;
+          };
+          id: string;
+        };
+        id: string;
+        space: {
+          sys: {
+            id: string;
+            linkType: string;
+            type: string;
+          };
+        };
+        type: string;
+        updatedAt: string;
+      };
+    }[];
+    Entry: {
+      fields: {
+        image: {
+          sys: {
+            id: string;
+            linkType: string;
+            type: string;
+          };
+        };
+        slug: string;
+        title: string;
+      };
+      metadata: {
+        tags: {}[];
+      };
+      sys: {
+        contentType: {
+          sys: {
+            id: string;
+            linkType: string;
+            type: string;
+          };
+        };
+        createdAt: string;
+        environment: {
+          sys: {
+            id: string;
+            linkType: string;
+            type: string;
+          };
+        };
+        id: string;
+        locale: string;
+        revision: string;
+        space: {
+          sys: {
+            id: string;
+            linkType: string;
+            type: string;
+          };
+        };
+        type: string;
+        updatedAt: string;
+      };
+    }[];
+  };
 }
 
 export interface ProductCardProps {

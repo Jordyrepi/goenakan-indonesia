@@ -1,0 +1,84 @@
+"use client";
+
+import { ProductDetails } from "@/types/product.types";
+import React, { useState } from "react";
+
+interface GalleryImagesProductProps {
+  product: ProductDetails;
+}
+
+const ProducDetails: React.FC<GalleryImagesProductProps> = ({ product }) => {
+  const {
+    title,
+    price,
+    images,
+    description,
+    capacity,
+    productsThatHaveBeenSold,
+  } = product.items[0].fields;
+
+  const [quantity, setQuantity] = useState<number>(1);
+  const [customPersonalization, setCustomPersonalization] =
+    useState<string>("");
+
+  const whatsappText = `Product: ${title}, Quantity: ${quantity}`;
+  const text = {
+    title: title,
+    quantity: quantity,
+    customPersonalization: customPersonalization,
+  };
+
+  return (
+    <section>
+      <h1 className="text-3xl font-bold">{title}</h1>
+      <p className="mt-2 text-gray-700">{description}</p>
+      <div className="mt-4 flex items-center">
+        <span className="rounded bg-gray-200 px-3 py-3 text-sm font-medium text-[#7A543E]">
+          {`${productsThatHaveBeenSold} product sold`}
+        </span>
+      </div>
+      <p className="mt-4 text-2xl font-bold">${price} USD</p>
+      {capacity && <p className="mt-2 font-bold">Capacity: {capacity}L</p>}
+      <div className="mt-4">
+        <p className="font-medium text-gray-700">Custom Personalization:</p>
+        <div className="mt-2 flex space-x-4">
+          <button
+            onClick={() => setCustomPersonalization("Yes")}
+            className="rounded-md border bg-[#463B34] px-8 py-2 text-sm text-white"
+          >
+            Yes
+          </button>
+          <button
+            onClick={() => setCustomPersonalization("No")}
+            className="rounded-md border border-[#463B34] px-8 py-2 text-sm text-gray-700 hover:bg-gray-200"
+          >
+            No
+          </button>
+        </div>
+      </div>
+
+      <div className="mt-4">
+        <p className="font-medium text-gray-700">Quantity:</p>
+        <input
+          type="number"
+          value={quantity}
+          onChange={(e) => setQuantity(Number(e.target.value))}
+          className="mt-2 w-[150px] rounded-md border border-slate-300 px-4 py-2 text-center text-gray-700 focus:outline-none"
+        />
+      </div>
+
+      <button className="mt-6 w-[20rem] rounded-md bg-[#463B34] py-3 font-semibold text-white transition">
+        <a
+          target="_blank"
+          href={`https://wa.me/082251110493?text=${text}`}
+        >
+          Send via WhatsApp
+        </a>
+      </button>
+
+      {/* WhatsApp Link with URL encoded text */}
+    </section>
+  );
+};
+
+export default ProducDetails;

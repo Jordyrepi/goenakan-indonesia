@@ -1,6 +1,7 @@
-import { getEntries, getEntriesBySlug } from "@/utils/contenful/get-entries";
-import GalleryImagesProduct from "./components/GalleryImagesProduct";
 import { ProductDetails } from "@/types/product.types";
+import { getEntriesBySlug } from "@/utils/contenful/get-entries";
+import GalleryImagesProduct from "./components/GalleryImagesProduct";
+import ProducDetails from "./components/ProducDetails";
 
 const ProductSlugpage = async ({ params }: any) => {
   const product: ProductDetails = await getEntriesBySlug(
@@ -17,53 +18,9 @@ const ProductSlugpage = async ({ params }: any) => {
       <div className="mx-auto my-8 w-full max-w-6xl">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {/* Product Image Section */}
-          <GalleryImagesProduct />
+          <GalleryImagesProduct product={product} />
 
-          <div>
-            <h1 className="text-3xl font-bold">{title}</h1>
-            <p className="mt-2 text-gray-700">{description}</p>
-            <div className="mt-4 flex items-center">
-              <span className="rounded bg-gray-200 px-3 py-3 text-sm font-medium text-[#7A543E]">
-                product sold
-              </span>
-            </div>
-            <p className="mt-4 text-2xl font-bold">${price} USD</p>
-            {capacity && (
-              <p className="mt-2 font-bold">Capacity: {capacity}L</p>
-            )}
-            <div className="mt-4">
-              <p className="font-medium text-gray-700">
-                Custom Personalization:
-              </p>
-              <div className="mt-2 flex space-x-4">
-                <button className="rounded-md border bg-[#463B34] px-8 py-2 text-sm text-white">
-                  Yes
-                </button>
-                <button className="rounded-md border border-[#463B34] px-8 py-2 text-sm text-gray-700 hover:bg-gray-200">
-                  No
-                </button>
-              </div>
-            </div>
-
-            <div className="mt-4">
-              <p className="font-medium text-gray-700">Quantity:</p>
-              <input
-                type="number"
-                defaultValue="1"
-                className="mt-2 w-[150px] rounded-md border border-slate-300 px-4 py-2 text-center text-gray-700 focus:outline-none"
-              />
-            </div>
-
-            <button className="mt-6 w-[20rem] rounded-md bg-[#463B34] py-3 font-semibold text-white transition">
-              SHOP NOW
-            </button>
-            {/* <a
-              target="_blank"
-              href={`https://wa.me/082251110493/?text=${text}`}
-            >
-              send
-            </a> */}
-          </div>
+          <ProducDetails product={product} />
         </div>
       </div>
     </main>
