@@ -15,7 +15,7 @@ const CustomOrderSection = () => {
       <h2 className="text-center font-serif text-5xl font-medium">
         Custom Order Form
       </h2>
-      <form className="flex items-center justify-center bg-white">
+      <form className="flex items-center justify-center">
         <div className="w-[45rem] space-y-8 rounded-lg border border-black p-16">
           <div className="flex flex-col gap-2">
             <label htmlFor="company-name" className="font-bold">
@@ -131,7 +131,7 @@ const CustomOrderSection = () => {
           </div>
           <button
             type="submit"
-            className="rounded-sm bg-[#463B34] px-16 py-3 text-white"
+            className="rounded-md bg-[#463B34] px-16 py-3 hover:bg-[#352d29] text-white"
           >
             Request For Quotation
           </button>

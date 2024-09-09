@@ -24,7 +24,7 @@ const ProductSlugpage = async ({ params }: any) => {
             <p className="mt-2 text-gray-700">{description}</p>
             <div className="mt-4 flex items-center">
               <span className="rounded bg-gray-200 px-3 py-3 text-sm font-medium text-[#7A543E]">
-                products sold
+                product sold
               </span>
             </div>
             <p className="mt-4 text-2xl font-bold">${price} USD</p>
@@ -57,6 +57,12 @@ const ProductSlugpage = async ({ params }: any) => {
             <button className="mt-6 w-[20rem] rounded-md bg-[#463B34] py-3 font-semibold text-white transition">
               SHOP NOW
             </button>
+            {/* <a
+              target="_blank"
+              href={`https://wa.me/082251110493/?text=${text}`}
+            >
+              send
+            </a> */}
           </div>
         </div>
       </div>

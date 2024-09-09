@@ -1,4 +1,8 @@
 export interface Product {
+  sys: { type: string };
+  total: number;
+  skip: number;
+  limit: number;
   includes: {
     Asset: {
       fields: {
@@ -99,6 +103,10 @@ export interface Product {
       productsThatHaveBeenSold: string;
       slug: string;
       title: string;
+      isAvailable: boolean;
+      long: number;
+      width: number;
+      capacity: number;
     };
     sys: {
       contentType: {};
@@ -206,4 +214,8 @@ export interface ProductCardProps {
   productsThatHaveBeenSold: string;
   slug: string;
   title: string;
+  isAvailable: boolean;
+  long: number;
+  width: number;
+  capacity: number;
 }

@@ -10,9 +10,9 @@ const IconsSection = () => {
           {icons.map((icon, index) => (
             <div
               key={index}
-              className="flex w-[180px] flex-col items-center justify-center gap-4"
+              className="flex w-[180px] flex-col items-center justify-center gap-4 animate-fadeIn transform space-y-4 transition-transform duration-500 ease-in-out hover:-translate-y-2"
             >
-              <div className="relative h-32 w-32 rounded-full ">
+              <div className="relative h-32 w-32 rounded-full  ">
                 <Image src={icon.icon} alt={icon.title} fill className="object-cover"/>
               </div>
               <p className="text-center font-serif text-xl text-[#1E1E1E]">

@@ -68,25 +68,25 @@ const Footer = async () => {
           </span>
         </div>
       </div>
-      <div className="mx-auto my-10 w-full max-w-7xl">
+      <div className="mx-auto flex w-full max-w-7xl justify-center py-10">
         <div className="flex gap-10">
           <div className="w-[30rem] space-y-5 font-medium">
-            <div className="relative h-[6rem]">
+            <div className="relative flex h-[6rem] w-[10rem] items-start">
               <Image
-                src={"/logo/Goenakan Logo Text Brown-01.svg"}
+                src={"/logo/Goenakan Logo Only Brown-03.svg"}
                 alt="logo footer"
                 fill
               />
             </div>
-            <p>
-              Goenakan Indonesia is a brand dedicated to making a positive
-              impact on the environment through its eco-friendly products. With
-              a strong commitment to environmental awareness, we have chosen to
-              focus on offering reusable solutions that reduce waste and promote
-              sustainability.
-            </p>
+            <p>Goenakan Indonesia</p>
             <div className="space-y-3">
-              <p>Goenakan Indonesia</p>
+              {/* <p>
+                Goenakan Indonesia is a brand dedicated to making a positive
+                impact on the environment through its eco-friendly products.
+                With a strong commitment to environmental awareness, we have
+                chosen to focus on offering reusable solutions that reduce waste
+                and promote sustainability.
+              </p> */}
               <p>{footer.items[0].fields?.location}</p>
             </div>
             <div className="space-y-3">
@@ -107,72 +107,98 @@ const Footer = async () => {
               )}
             </div>
           </div>
-          <div className="w-[30rem] space-y-5 py-16">
-            <h1 className="text-3xl font-medium">INFORMATION</h1>
-            <ul className="space-y-4">
-              <li>
-                <Link href={"/"}>Show All</Link>
-              </li>
-              <li>
-                <Link href={"/"}>Stainless Steel Products</Link>
-              </li>
-              <li>
-                <Link href={"/"}>Wooden Products</Link>
-              </li>
-              <li>
-                <Link href={"/"}>Glass Products</Link>
-              </li>
-              <li>
-                <Link href={"/"}>Mix Products</Link>
-              </li>
-              <li>
-                <Link href={"/frequently-ask-question"}>FAQ</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="w-[30rem] space-y-6 py-16">
-            <h1 className="text-3xl font-medium">SUPPORT</h1>
-            <ul className="space-y-4">
-              <li>
-                <Link href={"/about-us"}>About Us</Link>
-              </li>
-              <li>
-                <Link href={"/"}>Contact Us</Link>
-              </li>
-              <li>
-                <Link href={"/"}>Terms of Services</Link>
-              </li>
-            </ul>
+          <div className="ml-14 flex justify-end gap-x-5">
+            <div className="w-[20rem] space-y-5 py-16">
+              <h1 className="text-3xl font-medium">INFORMATION</h1>
+              <ul className="space-y-4">
+                <li>
+                  <Link href={"/"}>Show All</Link>
+                </li>
+                <li>
+                  <Link href={"/"}>Stainless Steel Products</Link>
+                </li>
+                <li>
+                  <Link href={"/"}>Wooden Products</Link>
+                </li>
+                <li>
+                  <Link href={"/"}>Glass Products</Link>
+                </li>
+                <li>
+                  <Link href={"/"}>Mix Products</Link>
+                </li>
+                <li>
+                  <Link href={"/frequently-ask-question"}>FAQ</Link>
+                </li>
+              </ul>
+            </div>
+            <div className="w-[20rem] space-y-6 py-16">
+              <h1 className="text-3xl font-medium">SUPPORT</h1>
+              <ul className="space-y-4">
+                <li>
+                  <Link href={"/about-us"}>About Us</Link>
+                </li>
+                <li>
+                  <Link href={"/"}>Contact Us</Link>
+                </li>
+                <li>
+                  <Link href={"/"}>Terms of Services</Link>
+                </li>
+              </ul>
 
-            <div className="flex gap-x-5">
-              {footer.items[0].fields.linkedInLink && (
-                <a href={footer.items[0].fields.linkedInLink} target="_blank">
-                  <div className="relative h-10 w-10">
-                    <Image src={"/icons/linkedin.svg"} alt="Linkedin" fill />
-                  </div>
-                </a>
-              )}
-              {footer.items[0].fields.facebookLink && (
-                <a href={footer.items[0].fields.facebookLink} target="_blank">
-                  <div className="relative h-10 w-10">
-                    <Image src={"/icons/facebook.svg"} alt="Linkedin" fill />
-                  </div>
-                </a>
-              )}
-              {footer.items[0].fields.instagramLink && (
-                <a href={footer.items[0].fields.instagramLink} target="_blank">
-                  <div className="relative h-10 w-10">
-                    <Image src={"/icons/instagram.svg"} alt="Linkedin" fill />
-                  </div>
-                </a>
-              )}
-              {footer.items[0].fields.tiktokLink && (
-                <a href={footer.items[0].fields.tiktokLink} target="_blank">
-                  <div className="relative h-10 w-10">
-                    <Image src={"/icons/tiktok.svg"} alt="Linkedin" fill />
-                  </div>
-                </a>
-              )}
+              <div className="space-y-3">
+                <h2 className="text-2xl font-medium">Follow Us</h2>
+                <div className="flex gap-x-4">
+                  {footer.items[0].fields.linkedInLink && (
+                    <a
+                      href={footer.items[0].fields.linkedInLink}
+                      target="_blank"
+                    >
+                      <div className="relative h-10 w-10">
+                        <Image
+                          src={"/icons/linkedin.svg"}
+                          alt="Linkedin"
+                          fill
+                        />
+                      </div>
+                    </a>
+                  )}
+                  {footer.items[0].fields.facebookLink && (
+                    <a
+                      href={footer.items[0].fields.facebookLink}
+                      target="_blank"
+                    >
+                      <div className="relative h-10 w-10">
+                        <Image
+                          src={"/icons/facebook.svg"}
+                          alt="Linkedin"
+                          fill
+                        />
+                      </div>
+                    </a>
+                  )}
+                  {footer.items[0].fields.instagramLink && (
+                    <a
+                      href={footer.items[0].fields.instagramLink}
+                      target="_blank"
+                    >
+                      <div className="relative h-10 w-10">
+                        <Image
+                          src={"/icons/instagram.svg"}
+                          alt="Linkedin"
+                          fill
+                        />
+                      </div>
+                    </a>
+                  )}
+                  {footer.items[0].fields.tiktokLink && (
+                    <a href={footer.items[0].fields.tiktokLink} target="_blank">
+                      <div className="relative h-10 w-10">
+                        <Image src={"/icons/tiktok.svg"} alt="Linkedin" fill />
+                      </div>
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -21,48 +21,53 @@ const AboutUsPage = () => {
   ];
 
   return (
-    <main className="mx-auto my-20 w-full max-w-7xl space-y-10">
-      <div className="flex justify-center">
-        <h1 className="font-serif text-5xl">About Us</h1>
-      </div>
+    <main className="bg-[#e1dad6]">
+      <div className="mx-auto py-20 w-full max-w-7xl space-y-10">
+        <div className="flex justify-center">
+          <h1 className="font-serif text-5xl">About Us</h1>
+        </div>
 
-      <div className="space-y-16">
-        {content.map((content, index) => (
-          <div key={index} className="flex items-center justify-center gap-16">
-            {index % 2 === 0 ? (
-              <div className="flex items-center justify-center gap-24">
-                <div className="relative h-[25rem] w-[20rem]">
-                  <Image
-                    src={content.image}
-                    alt="image"
-                    fill
-                    className="rounded-xl object-cover"
-                  />
+        <div className="space-y-16">
+          {content.map((content, index) => (
+            <div
+              key={index}
+              className="flex items-center justify-center gap-16"
+            >
+              {index % 2 === 0 ? (
+                <div className="flex items-center justify-center gap-24">
+                  <div className="relative h-[25rem] w-[20rem]">
+                    <Image
+                      src={content.image}
+                      alt="image"
+                      fill
+                      className="rounded-xl object-cover"
+                    />
+                  </div>
+                  <div className="w-[21rem]">
+                    <p>{content.text}</p>
+                  </div>
                 </div>
-                <div className="w-[21rem]">
-                  <p>{content.text}</p>
+              ) : (
+                <div
+                  key={index}
+                  className="flex items-center justify-center gap-24"
+                >
+                  <div className="w-[21rem]">
+                    <p>{content.text}</p>
+                  </div>
+                  <div className="relative h-[25rem] w-[20rem]">
+                    <Image
+                      src={content.image}
+                      alt="image"
+                      fill
+                      className="rounded-xl object-cover"
+                    />
+                  </div>
                 </div>
-              </div>
-            ) : (
-              <div
-                key={index}
-                className="flex items-center justify-center gap-24"
-              >
-                <div className="w-[21rem]">
-                  <p>{content.text}</p>
-                </div>
-                <div className="relative h-[25rem] w-[20rem]">
-                  <Image
-                    src={content.image}
-                    alt="image"
-                    fill
-                    className="rounded-xl object-cover"
-                  />
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   );

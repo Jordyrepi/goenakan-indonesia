@@ -1,9 +1,7 @@
 "use client";
 import { Categories } from "@/types/categories.types";
 import { Product } from "@/types/product.types";
-import Image from "next/image";
-import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CardProduct from "../CardProduct";
 
 interface BestSellerSectionProps {
@@ -16,7 +14,7 @@ const BestSellerSection: React.FC<BestSellerSectionProps> = ({
   categories,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string | undefined>(
-    categories?.items[2]?.sys.id,
+    categories?.items[0]?.sys.id,
   );
 
   const handleCategorySelect = (categoryId: string) => {
@@ -39,14 +37,14 @@ const BestSellerSection: React.FC<BestSellerSectionProps> = ({
 
           {/* Category Buttons */}
           <div className="space-x-5">
-            {categories?.items.map((category, index) => (
+            {categories?.items.slice(0, 4).map((category, index) => (
               <button
                 key={index}
                 onClick={() => handleCategorySelect(category.sys.id)}
                 className={`rounded-3xl px-5 py-2 text-sm text-white ${
                   selectedCategory === category.sys.id
-                    ? "bg-[#784426]"
-                    : "bg-[#7A543E] hover:bg-[#784426]"
+                    ? "bg-[#463b34]"
+                    : "bg-[#463b34] hover:bg-[#352d29]"
                 }`}
               >
                 {category.fields.title}

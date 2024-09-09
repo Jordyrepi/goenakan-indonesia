@@ -40,24 +40,23 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="h-5 bg-[#7A543E] lg:h-7"></div>
-      <nav className="mx-auto w-full max-w-7xl">
+      <div className="h-5 bg-[#7A543E] lg:h-5"></div>
+      <nav className="mx-auto w-full max-w-7xl py-3">
         <div className="hidden items-center justify-between md:flex">
-          <div className="flex gap-x-10">
-            <div className="relative h-[70px] w-[190px]">
-              <Image
-                fill
-                className=""
-                src={"/logo/Goenakan Logo Text Brown-01.svg"}
-                alt="logo navbar"
-              />
-            </div>
+          <Link href={'/'} className="relative h-[70px] w-[190px]">
+            <Image
+              fill
+              className=""
+              src={"/logo/Goenakan Logo Text Brown-01.svg"}
+              alt="logo navbar"
+            />
+          </Link>
+          <div className="space-x-10">
+            <Link href={"/product"}>Products</Link>
+            <Link href={"/"}>About us</Link>
+            <Link href={"/"}>Contact us</Link>
+            <Link href={"/article"}>Article</Link>
           </div>
-          <Link href={"/"}>Products</Link>
-          <Link href={"/"}>About us</Link>
-          <Link href={"/"}>Contact us</Link>
-          <Link href={"/article"}>Article</Link>
-          <div>search</div>
         </div>
         <div className="flex w-full items-center justify-between py-4 md:hidden">
           <div className="relative h-[50px] w-[140px] md:h-[70px] md:w-[190px]">

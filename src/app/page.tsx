@@ -1,19 +1,23 @@
 import { Categories } from "@/types/categories.types";
-import { getEntries } from "@/utils/contenful/get-entries";
+import { Product } from "@/types/product.types";
+import {
+  getBestSellerCategoriesEntries,
+  getEntries,
+} from "@/utils/contenful/get-entries";
 import Image from "next/image";
 import CarouselClient from "./components/CarouselClient";
 import CustomOrderSection from "./components/section/CustomOrderSection";
 import IconsSection from "./components/section/IconsSection";
 import BestSellerSection from "./components/section/BestSellerSection";
-import { Product } from "@/types/product.types";
 
 const Home = async () => {
   const client = await getEntries("client");
-  const categories: Categories = await getEntries("category");
+  const bestSellerCategories: Categories =
+    await getBestSellerCategoriesEntries();
   const products: Product = await getEntries("product");
 
   return (
-    <main className="mb-10 space-y-10 bg-[#f4f4f4]">
+    <main className="mb-10 space-y-20 bg-[#f4f4f4]">
       <section className="flex h-screen bg-[#E1DAD6]">
         <div className="ms:top-[170px] relative top-[150px] h-fit w-[24rem] space-y-5 px-4 md:left-10 md:w-[46rem]">
           <h1 className="text-2xl font-normal md:text-4xl">
@@ -23,7 +27,7 @@ const Home = async () => {
             Born out of a deep commitment to eco-friendly practices we redifened
             everyday utensils and drinkware
           </p>
-          <button className="bg-[#463B34] px-10 py-4 text-white hover:bg-[#6f584a] md:px-16 rounded-sm">
+          <button className="rounded-sm bg-[#463B34] px-10 py-4 text-white hover:bg-[#6f584a] md:px-16">
             SHOP NOW
           </button>
         </div>
@@ -33,7 +37,10 @@ const Home = async () => {
       <CarouselClient clients={client} />
 
       {/* Section 3: Best Seller */}
-      <BestSellerSection products={products} categories={categories} />
+      <BestSellerSection
+        products={products}
+        categories={bestSellerCategories}
+      />
 
       {/* Section 4 : Product Categories */}
       <section className="mx-auto my-20 w-full max-w-7xl space-y-5">
@@ -43,9 +50,9 @@ const Home = async () => {
 
         <div className="flex flex-wrap items-center justify-center justify-items-center">
           <div className="flex w-[820px] flex-wrap gap-5 gap-x-[60px]">
-            {categories?.items.map((category, index: number) => {
+            {bestSellerCategories?.items.slice(0, 4).map((category, index: number) => {
               const idAsset = category.fields.image.sys.id;
-              const assets = categories.includes.Asset;
+              const assets = bestSellerCategories.includes.Asset;
               const thumbnail = assets.find(
                 (asset: any) => asset.sys.id === idAsset,
               );
@@ -85,7 +92,7 @@ const Home = async () => {
           <h2 className="font-serif text-4xl">
             Best Utensils from Best Materials
           </h2>
-          <button className="rounded-sm bg-[#463B34] px-16 py-3 text-[#f4f4f4] ">
+          <button className="rounded-sm bg-[#463B34] px-16 py-3 text-[#f4f4f4]">
             SHOP NOW
           </button>
         </div>
@@ -113,7 +120,7 @@ const Home = async () => {
               focus on offering reusable solutions that reduce waste and promote
               sustainability.
             </p>
-            <button className="bg-[#463B34] px-12 py-3 text-white rounded-sm">
+            <button className="rounded-md bg-[#463B34] px-12 py-3 text-white hover:bg-[#352d29]">
               About Us
             </button>
           </div>
