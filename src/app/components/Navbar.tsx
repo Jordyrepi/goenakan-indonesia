@@ -63,7 +63,7 @@ const Navbar = () => {
             <Image
               fill
               className="object-cover"
-              src={"/company-logo.png"}
+              src={"/logo/Goenakan Logo Text Brown-01.svg"}
               alt="logo navbar"
             />
           </div>
