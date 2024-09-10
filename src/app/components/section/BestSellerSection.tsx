@@ -30,18 +30,19 @@ const BestSellerSection: React.FC<BestSellerSectionProps> = ({
     });
 
   return (
-    <section className="mx-auto w-full max-w-7xl">
+    <section className="mx-auto w-full max-w-7xl px-4">
       <div className="flex flex-col items-center justify-center gap-y-7">
-        <div className="flex flex-col items-center justify-center gap-y-5">
-          <h2 className="font-serif text-5xl font-medium">Our Best Sellers</h2>
+        <h2 className="text-center font-serif text-3xl font-medium md:text-5xl">
+          Our Best Sellers
+        </h2>
 
-          {/* Category Buttons */}
-          <div className="space-x-5">
+        <div className="w-full overflow-x-auto">
+          <div className="flex justify-center space-x-5 whitespace-nowrap">
             {categories?.items.slice(0, 4).map((category, index) => (
               <button
                 key={index}
                 onClick={() => handleCategorySelect(category.sys.id)}
-                className={`rounded-3xl px-5 py-2 text-sm text-white ${
+                className={`rounded-3xl px-4 py-2 text-sm text-white transition-all duration-300 md:px-5 md:py-2 ${
                   selectedCategory === category.sys.id
                     ? "bg-[#463b34]"
                     : "bg-[#463b34] hover:bg-[#352d29]"
@@ -53,7 +54,7 @@ const BestSellerSection: React.FC<BestSellerSectionProps> = ({
           </div>
         </div>
 
-        <div className="flex gap-[20px]">
+        <div className="md:flex md:gap-[20px] gap-3 grid grid-cols-2">
           {filteredProducts?.slice(0, 4).map((product, index) => {
             const idAsset = product.fields.images[0].sys.id;
             const assets = products?.includes.Asset;

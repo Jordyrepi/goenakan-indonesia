@@ -24,7 +24,7 @@ const ProductsSection: React.FC<ProductsSectionProps> = ({
   };
 
   return (
-    <section className="space-y-10 py-10">
+    <section className="md:space-y-10 space-y-5 py-10">
       <div className="mr-5 flex justify-end">
         <FilterProducts
           categories={categories}
@@ -33,7 +33,7 @@ const ProductsSection: React.FC<ProductsSectionProps> = ({
       </div>
 
       {/* Display filtered products */}
-      <div className="flex flex-wrap items-center gap-6">
+      <div className="flex flex-wrap justify-center items-center md:gap-6 gap-4">
         {products.items.map((product, index) => {
           const idAsset = product.fields.images[0].sys.id;
           const assets = products?.includes.Asset;

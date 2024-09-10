@@ -17,17 +17,17 @@ const Home = async () => {
   const products: Product = await getEntries("product");
 
   return (
-    <main className="mb-10 space-y-20 bg-[#f4f4f4]">
+    <main className="mb-10 space-y-10 bg-[#f4f4f4] md:space-y-20">
       <section className="flex h-screen bg-[#E1DAD6]">
-        <div className="ms:top-[170px] relative top-[150px] h-fit w-[24rem] space-y-5 px-4 md:left-10 md:w-[46rem]">
+        <div className="relative top-[80px] h-fit space-y-5 px-4 md:left-10 md:top-[170px] md:w-[46rem]">
           <h1 className="text-2xl font-normal md:text-4xl">
             Shining Beacon of Innovation and Sustainbility
           </h1>
-          <p className="w-[35rem] text-lg font-medium">
+          <p className="text-lg font-medium md:w-[35rem]">
             Born out of a deep commitment to eco-friendly practices we redifened
             everyday utensils and drinkware
           </p>
-          <button className="rounded-sm bg-[#463B34] px-10 py-4 text-white hover:bg-[#6f584a] md:px-16">
+          <button className="rounded-sm bg-[#463B34] px-10 py-2 text-white hover:bg-[#6f584a] md:px-16 md:py-4">
             SHOP NOW
           </button>
         </div>
@@ -43,68 +43,70 @@ const Home = async () => {
       />
 
       {/* Section 4 : Product Categories */}
-      <section className="mx-auto my-20 w-full max-w-7xl space-y-5">
-        <h2 className="text-center font-serif text-5xl font-medium">
+      <section className="mx-auto my-20 w-full max-w-7xl space-y-5 px-4">
+        <h2 className="text-center font-serif md:text-5xl text-3xl font-medium">
           Product Categories
         </h2>
 
         <div className="flex flex-wrap items-center justify-center justify-items-center">
           <div className="flex w-[820px] flex-wrap gap-5 gap-x-[60px]">
-            {bestSellerCategories?.items.slice(0, 4).map((category, index: number) => {
-              const idAsset = category.fields.image.sys.id;
-              const assets = bestSellerCategories.includes.Asset;
-              const thumbnail = assets.find(
-                (asset: any) => asset.sys.id === idAsset,
-              );
+            {bestSellerCategories?.items
+              .slice(0, 4)
+              .map((category, index: number) => {
+                const idAsset = category.fields.image.sys.id;
+                const assets = bestSellerCategories.includes.Asset;
+                const thumbnail = assets.find(
+                  (asset: any) => asset.sys.id === idAsset,
+                );
 
-              return (
-                <div
-                  key={index}
-                  className="animate-fadeIn transform space-y-4 transition-transform duration-500 ease-in-out hover:-translate-y-2"
-                >
-                  <div className="relative h-[180px] w-[380px]">
-                    <Image
-                      src={`https:${thumbnail?.fields.file.url}`}
-                      fill
-                      className="rounded-md object-cover"
-                      alt={category.fields.title}
-                    />
+                return (
+                  <div
+                    key={index}
+                    className="animate-fadeIn transform space-y-4 transition-transform duration-500 ease-in-out hover:-translate-y-2"
+                  >
+                    <div className="relative h-[180px] w-[380px]">
+                      <Image
+                        src={`https:${thumbnail?.fields.file.url}`}
+                        fill
+                        className="rounded-md object-cover"
+                        alt={category.fields.title}
+                      />
+                    </div>
+                    <h4 className="text-center font-sans text-xl font-medium">
+                      {category.fields.title}
+                    </h4>
                   </div>
-                  <h4 className="text-center font-sans text-xl font-medium">
-                    {category.fields.title}
-                  </h4>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
         </div>
       </section>
 
       {/* Section 5 : Goenakan banner */}
-      <section className="relative h-[650px] w-full">
+      <section className="relative md:h-[650px] h-[325px] w-full">
         <Image
           fill
           className="absolute z-0 object-cover"
           src={"/Goenakan ID Banner 1.png"}
           alt="Goenakan ID Banner"
         />
-        <div className="absolute right-0 top-0 z-10 flex flex-col items-end space-y-5 p-10">
-          <h2 className="font-serif text-4xl">
+        <div className="absolute right-0 top-0 p-2 z-10 flex flex-col items-end space-y-5 md:p-10">
+          <h2 className="font-serif md:text-4xl text-xl">
             Best Utensils from Best Materials
           </h2>
-          <button className="rounded-sm bg-[#463B34] px-16 py-3 text-[#f4f4f4]">
+          <button className="rounded-sm bg-[#463B34] md:px-16 md:py-3 py-2 text-sm px-10  text-[#f4f4f4]">
             SHOP NOW
           </button>
         </div>
       </section>
 
       {/* Section 6 : Our Story */}
-      <section className="mx-auto w-full max-w-7xl space-y-12 pt-14">
-        <h2 className="text-center font-serif text-5xl font-medium">
+      <section className="mx-auto w-full max-w-7xl md:space-y-12 space-y-4 md:pt-14 px-4">
+        <h2 className="text-center font-serif md:text-5xl text-3xl font-medium">
           Our Story
         </h2>
-        <div className="flex items-center justify-center gap-20">
-          <div className="relative h-[400px] w-[350px]">
+        <div className="flex md:flex-row flex-col items-center justify-center md:gap-20 gap-10">
+          <div className="relative md:h-[400px] md:w-[350px] h-[200px] w-full">
             <Image
               fill
               className="rounded-xl object-cover"
@@ -112,7 +114,7 @@ const Home = async () => {
               alt="Story-Section"
             />
           </div>
-          <div className="space-y-8 md:w-[350px]">
+          <div className="md:space-y-8 space-y-4 md:w-[350px]">
             <p>
               Goenakan Indonesia is a brand dedicated to making a positive
               impact on the environment through its eco-friendly products. With

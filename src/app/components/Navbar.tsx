@@ -41,9 +41,9 @@ const Navbar = () => {
       }`}
     >
       <div className="h-5 bg-[#7A543E] lg:h-5"></div>
-      <nav className="mx-auto w-full max-w-7xl py-3">
+      <nav className="mx-auto w-full max-w-7xl px-4 md:py-3">
         <div className="hidden items-center justify-between md:flex">
-          <Link href={'/'} className="relative h-[70px] w-[190px]">
+          <Link href={"/"} className="relative h-[70px] w-[190px]">
             <Image
               fill
               className=""
@@ -53,7 +53,7 @@ const Navbar = () => {
           </Link>
           <div className="space-x-10">
             <Link href={"/product"}>Products</Link>
-            <Link href={"/"}>About us</Link>
+            <Link href={"/about-us"}>About us</Link>
             <Link href={"/"}>Contact us</Link>
             <Link href={"/article"}>Article</Link>
           </div>
@@ -79,12 +79,22 @@ const Navbar = () => {
             </SheetTrigger>
             <SheetContent>
               <ul className="list-none space-y-2">
-                <li>Show All</li>
-                <li>Stainless Steel Products</li>
-                <li>Bamboo Products</li>
-                <li>Wooden Products</li>
-                <li>Glass Products</li>
-                <li>Mix</li>
+                <li>
+                  {" "}
+                  <Link href={"/product"}>Products</Link>
+                </li>
+                <li>
+                  {" "}
+                  <Link href={"/about-us"}>About us</Link>
+                </li>
+                <li>
+                  {" "}
+                  <Link href={"/"}>Contact us</Link>
+                </li>
+                <li>
+                  {" "}
+                  <Link href={"/article"}>Article</Link>
+                </li>
               </ul>
             </SheetContent>
           </Sheet>

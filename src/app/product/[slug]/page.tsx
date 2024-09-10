@@ -13,7 +13,7 @@ const ProductSlugpage = async ({ params }: any) => {
     product.items[0].fields;
 
   return (
-    <main>
+    <main className="px-4">
       {/* Product Detail Section */}
       <div className="mx-auto my-8 w-full max-w-6xl">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">

@@ -15,7 +15,7 @@ const CarouselClient: React.FC<CarouselClientProps> = ({ clients }) => {
   );
   return (
     <section className="space-y-4">
-      <h1 className="text-center font-serif text-5xl font-medium">Our Clients</h1>
+      <h1 className="text-center font-serif md:text-5xl text-3xl font-medium">Our Clients</h1>
       <Carousel
         plugins={[plugin.current]}
         opts={{
@@ -34,9 +34,9 @@ const CarouselClient: React.FC<CarouselClientProps> = ({ clients }) => {
             return (
               <CarouselItem
                 key={index}
-                className="flex items-center justify-center pl-1 md:basis-1/2 lg:basis-1/5"
+                className="flex items-center justify-center pl-1 md:basis-1/2 lg:basis-1/5 basis-1/3"
               >
-                <div className="relative h-[125px] w-[125px]">
+                <div className="relative md:h-[125px] md:w-[125px] w-[75px] h-[75px]">
                   <Image
                     src={`https:${thumbnail?.fields.file.url}`}
                     alt={client.fields.clientName}

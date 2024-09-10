@@ -41,7 +41,7 @@ const Footer = async () => {
   return (
     <footer>
       <div className="h-16 bg-black">
-        <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-center gap-x-5 text-white">
+        <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-center gap-x-5 text-white overflow-x-auto">
           <span className="flex items-center gap-5">
             <FaShippingFast className="text-4xl" />
             <p className="font-extralight">FAST DELIVERY</p>
@@ -68,9 +68,9 @@ const Footer = async () => {
           </span>
         </div>
       </div>
-      <div className="mx-auto flex w-full max-w-7xl justify-center py-10">
-        <div className="flex gap-10">
-          <div className="w-[30rem] space-y-5 font-medium">
+      <div className="mx-auto md:flex w-full max-w-7xl justify-center py-10 px-4">
+        <div className="md:flex gap-10">
+          <div className="md:w-[30rem] space-y-5 font-medium">
             <div className="relative flex h-[6rem] w-[10rem] items-start">
               <Image
                 src={"/logo/Goenakan Logo Only Brown-03.svg"}
@@ -80,13 +80,6 @@ const Footer = async () => {
             </div>
             <p>Goenakan Indonesia</p>
             <div className="space-y-3">
-              {/* <p>
-                Goenakan Indonesia is a brand dedicated to making a positive
-                impact on the environment through its eco-friendly products.
-                With a strong commitment to environmental awareness, we have
-                chosen to focus on offering reusable solutions that reduce waste
-                and promote sustainability.
-              </p> */}
               <p>{footer.items[0].fields?.location}</p>
             </div>
             <div className="space-y-3">
@@ -107,8 +100,8 @@ const Footer = async () => {
               )}
             </div>
           </div>
-          <div className="ml-14 flex justify-end gap-x-5">
-            <div className="w-[20rem] space-y-5 py-16">
+          <div className="md:ml-14 md:flex justify-end gap-x-5">
+            <div className="md:w-[20rem] space-y-5 md:py-16 py-6">
               <h1 className="text-3xl font-medium">INFORMATION</h1>
               <ul className="space-y-4">
                 <li>
@@ -131,7 +124,7 @@ const Footer = async () => {
                 </li>
               </ul>
             </div>
-            <div className="w-[20rem] space-y-6 py-16">
+            <div className="md:w-[20rem] space-y-6 md:py-16 py-6">
               <h1 className="text-3xl font-medium">SUPPORT</h1>
               <ul className="space-y-4">
                 <li>

@@ -15,16 +15,16 @@ const CardProduct: React.FC<CardProductProps> = ({
   category,
 }) => {
   return (
-    <div className="w-[300px] rounded-xl border bg-white shadow-md">
-     <div className="relative h-[200px]">
+    <div className="w-[173px] rounded-xl border bg-white shadow-md md:w-[300px]">
+      <div className="relative mx-auto aspect-square w-full overflow-hidden">
         {!product.isAvailable && (
           <>
-            <div className="absolute inset-0 bg-black opacity-50 z-10 rounded-md" />
+            <div className="absolute inset-0 z-10 rounded-md bg-black opacity-50" />
             <Image
               src="/watermark out of stock.svg"
               alt="Out of stock"
               fill
-              className="object-contain z-20"
+              className="z-20 "
             />
           </>
         )}
@@ -32,17 +32,21 @@ const CardProduct: React.FC<CardProductProps> = ({
           src={`https:${thumbnailUrl}`}
           alt={product.title}
           fill
-          className={`object-contain ${!product.isAvailable ? 'opacity-70' : ''}`}
+          className={`mx-auto object-cover rounded-md ${!product.isAvailable ? "opacity-70" : ""}`}
         />
       </div>
-      <div className="p-8">
+      <div className="p-4 md:p-8">
         <div className="space-y-1">
-          <span className="font-sans line-clamp-1">{category}</span>
-          <h5 className="line-clamp-1 text-lg font-medium">{product.title}</h5>
+          <span className="line-clamp-1 font-sans text-[12px] md:text-sm">
+            {category}
+          </span>
+          <h5 className="line-clamp-1 font-medium md:text-lg">
+            {product.title}
+          </h5>
           <p>{`${product.long} x ${product.width} cm`}</p>
         </div>
-        <h6 className="my-4 text-xl font-medium">Rp {product.price}</h6>
-        <button className="h-11 w-full rounded-lg bg-[#463b34] text-white hover:bg-[#352d29]">
+        <h6 className="my-4 font-medium md:text-xl">Rp {product.price}</h6>
+        <button className="h-8 w-full rounded-lg bg-[#463b34] text-white hover:bg-[#352d29] md:h-11">
           <Link href={`/product/${product.slug}`}>Product Detail</Link>
         </button>
       </div>

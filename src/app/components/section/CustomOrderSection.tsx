@@ -11,12 +11,12 @@ import React from "react";
 
 const CustomOrderSection = () => {
   return (
-    <section className="mx-auto w-full max-w-7xl space-y-12">
-      <h2 className="text-center font-serif text-5xl font-medium">
+    <section className="mx-auto w-full max-w-7xl space-y-12 px-4">
+      <h2 className="text-center font-serif md:text-5xl text-3xl font-medium">
         Custom Order Form
       </h2>
       <form className="flex items-center justify-center">
-        <div className="w-[45rem] space-y-8 rounded-lg border border-black p-16">
+        <div className="md:w-[45rem] space-y-8 rounded-lg border border-black md:p-16 p-8">
           <div className="flex flex-col gap-2">
             <label htmlFor="company-name" className="font-bold">
               Company Name

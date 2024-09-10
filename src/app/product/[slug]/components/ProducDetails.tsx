@@ -21,12 +21,7 @@ const ProducDetails: React.FC<GalleryImagesProductProps> = ({ product }) => {
   const [customPersonalization, setCustomPersonalization] =
     useState<string>("");
 
-  const whatsappText = `Product: ${title}, Quantity: ${quantity}`;
-  const text = {
-    title: title,
-    quantity: quantity,
-    customPersonalization: customPersonalization,
-  };
+  const whatsappMessage = `Hi, I'm interested in purchasing the following product:\n\nProduct: ${title}\nQuantity: ${quantity}\nCustom Personalization: ${customPersonalization}\n\nCan you please provide more details? Thanks!`;
 
   return (
     <section>
@@ -70,13 +65,11 @@ const ProducDetails: React.FC<GalleryImagesProductProps> = ({ product }) => {
       <button className="mt-6 w-[20rem] rounded-md bg-[#463B34] py-3 font-semibold text-white transition">
         <a
           target="_blank"
-          href={`https://wa.me/082251110493/?text=${text}`}
+          href={`https://wa.me/6282251110493?text=${encodeURIComponent(whatsappMessage)}`}
         >
-          Send via WhatsApp
+          Shop now
         </a>
       </button>
-
-      {/* WhatsApp Link with URL encoded text */}
     </section>
   );
 };
