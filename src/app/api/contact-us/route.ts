@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
     try {
       const {
         name,
-        country,
+        subject,
         email,
         phoneNumber,
         companyName,
@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
       const templateSource = await fs.readFile(templatePath, "utf-8");
       const html = ejs.render(templateSource, {
         name,
-        country,
+        subject,
         email,
         phoneNumber,
         companyName,
@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
         from: email,
         to: process.env.COMPANY_EMAIL,
         subject: `New Contact Form Submission from ${name}`,
-        text: `Name: ${name}\nCountry: ${country}\nEmail: ${email}\nPhone Number: ${phoneNumber}\nCompany Name: ${companyName}\nWebsite: ${website}\n\nMessage:\n${message}`,
+        text: `Name: ${name}\subject: ${subject}\nEmail: ${email}\nPhone Number: ${phoneNumber}\nCompany Name: ${companyName}\nWebsite: ${website}\n\nMessage:\n${message}`,
         html,
       };
 

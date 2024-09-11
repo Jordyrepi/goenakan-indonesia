@@ -3,7 +3,7 @@
 import { useContactForm } from "../formik/ContactUs.Formik";
 
 const ContactForm = () => {
-  const {formik, loading} = useContactForm()
+  const { formik, loading } = useContactForm();
 
   return (
     <form
@@ -27,7 +27,7 @@ const ContactForm = () => {
 
       <div className="flex flex-col gap-y-1">
         <label htmlFor="country" className="text-sm">
-          Country
+          Subject
         </label>
         <input
           type="text"
@@ -35,8 +35,23 @@ const ContactForm = () => {
           className="h-9 rounded-md px-2 text-black"
           {...formik.getFieldProps("country")}
         />
-        {formik.touched.country && formik.errors.country ? (
-          <div className="text-red-500">{formik.errors.country}</div>
+        {formik.touched.subject && formik.errors.subject ? (
+          <div className="text-red-500">{formik.errors.subject}</div>
+        ) : null}
+      </div>
+
+      <div className="flex flex-col gap-y-1">
+        <label htmlFor="companyName" className="text-sm">
+          Company Name
+        </label>
+        <input
+          type="text"
+          id="companyName"
+          className="h-9 rounded-md px-2 text-black"
+          {...formik.getFieldProps("companyName")}
+        />
+        {formik.touched.companyName && formik.errors.companyName ? (
+          <div className="text-red-500">{formik.errors.companyName}</div>
         ) : null}
       </div>
 
@@ -68,36 +83,6 @@ const ContactForm = () => {
           />
           {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
             <div className="text-red-500">{formik.errors.phoneNumber}</div>
-          ) : null}
-        </div>
-
-        <div className="flex w-full flex-col gap-y-1 md:w-[208px]">
-          <label htmlFor="companyName" className="text-sm">
-            Company Name
-          </label>
-          <input
-            type="text"
-            id="companyName"
-            className="h-9 rounded-md px-2 text-black"
-            {...formik.getFieldProps("companyName")}
-          />
-          {formik.touched.companyName && formik.errors.companyName ? (
-            <div className="text-red-500">{formik.errors.companyName}</div>
-          ) : null}
-        </div>
-
-        <div className="flex w-full flex-col gap-y-1 md:w-[208px]">
-          <label htmlFor="website" className="text-sm">
-            Website (Optional)
-          </label>
-          <input
-            type="text"
-            id="website"
-            className="h-9 rounded-md px-2 text-black"
-            {...formik.getFieldProps("website")}
-          />
-          {formik.touched.website && formik.errors.website ? (
-            <div className="text-red-500">{formik.errors.website}</div>
           ) : null}
         </div>
       </div>

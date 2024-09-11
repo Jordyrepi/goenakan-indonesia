@@ -11,7 +11,7 @@ export function useContactForm() {
   const formik = useFormik({
     initialValues: {
       name: "",
-      country: "",
+      subject: "",
       email: "",
       phoneNumber: "",
       companyName: "",
@@ -22,13 +22,10 @@ export function useContactForm() {
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       setLoading(true);
       try {
-        const sendEmail = await sendEmailContact(values, toast);
-        console.log("check send email ", sendEmail);
+        await sendEmailContact(values, toast);
 
-        
         resetForm();
       } catch (error) {
-        console.log("check error ", error);
         toast({
           title: "Error",
           description: "Something went wrong, please try again later.",

@@ -5,7 +5,7 @@ export const contactUsValidationSchema = Yup.object({
     .trim()
     .required("Name is required")
     .test("no-spaces", "Name cannot be empty", (value) => value?.trim() !== ""),
-  country: Yup.string()
+  subject: Yup.string()
     .trim()
     .required("Country is required")
     .test(
