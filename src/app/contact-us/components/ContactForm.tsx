@@ -26,14 +26,15 @@ const ContactForm = () => {
       </div>
 
       <div className="flex flex-col gap-y-1">
-        <label htmlFor="country" className="text-sm">
+        <label htmlFor="subject" className="text-sm">
           Subject
         </label>
         <input
           type="text"
-          id="country"
+          id="subject"
+
           className="h-9 rounded-md px-2 text-black"
-          {...formik.getFieldProps("country")}
+          {...formik.getFieldProps("subject")}
         />
         {formik.touched.subject && formik.errors.subject ? (
           <div className="text-red-500">{formik.errors.subject}</div>

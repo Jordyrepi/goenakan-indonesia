@@ -1,4 +1,4 @@
-import { useFormik } from "formik";
+import { Formik, useFormik } from "formik";
 import { useState } from "react";
 import { sendEmailContact } from "@/utils/nodemailer/SendEmailContactUs";
 import { contactUsValidationSchema } from "../schemas/ContactUsValidationSchema";
@@ -15,7 +15,6 @@ export function useContactForm() {
       email: "",
       phoneNumber: "",
       companyName: "",
-      website: "",
       message: "",
     },
     validationSchema: contactUsValidationSchema,
@@ -37,6 +36,9 @@ export function useContactForm() {
       }
     },
   });
+
+  console.log("check formik : ",formik);
+  
 
   return { formik, loading };
 }

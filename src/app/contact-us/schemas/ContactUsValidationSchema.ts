@@ -7,10 +7,10 @@ export const contactUsValidationSchema = Yup.object({
     .test("no-spaces", "Name cannot be empty", (value) => value?.trim() !== ""),
   subject: Yup.string()
     .trim()
-    .required("Country is required")
+    .required("Subject is required")
     .test(
       "no-spaces",
-      "Country cannot be empty",
+      "Subject cannot be empty",
       (value) => value?.trim() !== "",
     ),
   email: Yup.string()
@@ -33,7 +33,6 @@ export const contactUsValidationSchema = Yup.object({
       "Company name cannot be empty",
       (value) => value?.trim() !== "",
     ),
-  website: Yup.string().required("Website is required").optional(),
   message: Yup.string()
     .trim()
     .required("Message is required")
