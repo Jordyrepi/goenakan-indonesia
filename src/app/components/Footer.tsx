@@ -41,7 +41,7 @@ const Footer = async () => {
   return (
     <footer>
       <div className="h-16 bg-black">
-        <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-center gap-x-5 text-white overflow-x-auto">
+        <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-center gap-x-5 overflow-x-auto text-white">
           <span className="flex items-center gap-5">
             <FaShippingFast className="text-4xl" />
             <p className="font-extralight">FAST DELIVERY</p>
@@ -68,9 +68,9 @@ const Footer = async () => {
           </span>
         </div>
       </div>
-      <div className="mx-auto md:flex w-full max-w-7xl justify-center py-10 px-4">
-        <div className="md:flex gap-10">
-          <div className="md:w-[30rem] space-y-5 font-medium">
+      <div className="mx-auto w-full max-w-7xl justify-center px-4 py-10 md:flex">
+        <div className="gap-10 md:flex">
+          <div className="space-y-5 font-medium md:w-[30rem]">
             <div className="relative flex h-[6rem] w-[10rem] items-start">
               <Image
                 src={"/logo/Goenakan Logo Only Brown-03.svg"}
@@ -100,8 +100,8 @@ const Footer = async () => {
               )}
             </div>
           </div>
-          <div className="md:ml-14 md:flex justify-end gap-x-5">
-            <div className="md:w-[20rem] space-y-5 md:py-16 py-6">
+          <div className="gap-x-5 md:ml-14 md:flex">
+            <div className=" space-y-5 py-6 md:w-[20rem] ">
               <h1 className="text-3xl font-medium">INFORMATION</h1>
               <ul className="space-y-4">
                 <li>
@@ -116,15 +116,13 @@ const Footer = async () => {
                 <li>
                   <Link href={"/"}>Glass Products</Link>
                 </li>
-                <li>
-                  <Link href={"/"}>Mix Products</Link>
-                </li>
+
                 <li>
                   <Link href={"/frequently-ask-question"}>FAQ</Link>
                 </li>
               </ul>
             </div>
-            <div className="md:w-[20rem] space-y-6 md:py-16 py-6">
+            <div className="space-y-6 py-6 md:w-[20rem]">
               <h1 className="text-3xl font-medium">SUPPORT</h1>
               <ul className="space-y-4">
                 <li>

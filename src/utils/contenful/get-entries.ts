@@ -5,12 +5,15 @@ const { baseUrl, spaceId, accessToken, environtmentId } = contenfulConfig;
 export const getEntries = async (contentType: string) => {
   const response = await fetch(
     `${baseUrl}/spaces/${spaceId}/environments/${environtmentId}/entries?access_token=${accessToken}&content_type=${contentType}`,
-    { cache: "no-store" },
+    {
+      next: {
+        revalidate: 10,
+      },
+    },
   );
 
   return response.json();
 };
-
 
 export const getBestSellerCategoriesEntries = async () => {
   const response = await fetch(
@@ -20,8 +23,6 @@ export const getBestSellerCategoriesEntries = async () => {
 
   return response.json();
 };
-
-
 
 export const getEntriesPagination = async (
   page: number,
@@ -50,7 +51,11 @@ export const getEntriesPagination = async (
 export const getEntriesBySlug = async (contentType: string, slug: string) => {
   const response = await fetch(
     `${baseUrl}/spaces/${spaceId}/environments/${environtmentId}/entries?access_token=${accessToken}&content_type=${contentType}&fields.slug=${slug}`,
-    { cache: "no-store" },
+    {
+      next: {
+        revalidate: 10,
+      },
+    },
   );
 
   return response.json();

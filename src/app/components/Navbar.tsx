@@ -54,12 +54,12 @@ const Navbar = () => {
           <div className="space-x-10">
             <Link href={"/product"}>Products</Link>
             <Link href={"/about-us"}>About us</Link>
-            <Link href={"/"}>Contact us</Link>
+            <Link href={"/contact-us"}>Contact us</Link>
             <Link href={"/article"}>Article</Link>
           </div>
         </div>
         <div className="flex w-full items-center justify-between py-4 md:hidden">
-          <div className="relative h-[50px] w-[140px] md:h-[70px] md:w-[190px]">
+          <div className="relative h-[50px] w-[180px] md:h-[70px] md:w-[190px]">
             <Image
               fill
               className="object-cover"
@@ -89,11 +89,11 @@ const Navbar = () => {
                 </li>
                 <li>
                   {" "}
-                  <Link href={"/"}>Contact us</Link>
+                  <Link href={"/contact-us"}>Contact us</Link>
                 </li>
                 <li>
                   {" "}
-                  <Link href={"/article"}>Article</Link>
+                  <Link href={"/"}>Article</Link>
                 </li>
               </ul>
             </SheetContent>

@@ -44,46 +44,50 @@ const GalleryImagesProduct: React.FC<GalleryImagesProductProps> = ({
   };
 
   return (
-    <section>
+    <section className="space-y-8">
       {selectedImage && (
-        <div className="relative mb-4 flex transform items-center justify-center transition-all duration-300 hover:scale-105">
+        <div className="relative mb-4 flex h-[27rem] w-full transform items-center justify-center transition-all duration-300 hover:scale-105">
           <Image
             src={`https:${selectedImage}`}
             alt={product.items[0].fields.title}
-            className="h-auto max-w-full rounded-lg object-cover shadow-md transition duration-300 ease-in-out"
-            priority
-            width={500}
-            height={500}
+            className="rounded-lg object-contain shadow-md transition duration-300 ease-in-out"
+            fill
             quality={100}
           />
         </div>
       )}
 
-<div className="flex justify-center items-center space-x-2 overflow-x-auto">
-        {product.items[0].fields.images && product.items[0].fields.images.length > 0 ? (
-          product.items[0].fields.images.map((image, index) => {
-            const imageId = image.sys.id;
-            const assets = product.includes?.Asset;
-            const thumbnailAsset = assets?.find((asset) => asset.sys.id === imageId);
-            const thumbnailUrl = thumbnailAsset?.fields?.file?.url;
+      <div className="flex h-[7rem] items-center justify-start space-x-4 overflow-x-auto">
+        {product.items[0].fields.images &&
+        product.items[0].fields.images.length > 0
+          ? product.items[0].fields.images.map((image, index) => {
+              const imageId = image.sys.id;
+              const assets = product.includes?.Asset;
+              const thumbnailAsset = assets?.find(
+                (asset) => asset.sys.id === imageId,
+              );
+              const thumbnailUrl = thumbnailAsset?.fields?.file?.url;
 
-            return thumbnailUrl ? (
-              <Image
-                key={imageId}
-                src={`https:${thumbnailUrl}`}
-                alt={`${product.items[0].fields.title} - Thumbnail ${index}`}
-                className={`rounded-md shadow-md cursor-pointer transform transition-all hover:scale-105 duration-300 ${
-                  selectedImage === thumbnailUrl
-                    ? "brightness-100"
-                    : "brightness-75 hover:brightness-100"
-                }`}
-                onClick={() => handleImageClick(imageId)}
-                width={100}
-                height={100}
-              />
-            ) : null;
-          })
-        ) : null}
+              return thumbnailUrl ? (
+                <div
+                  key={imageId}
+                  className="relative mx-auto aspect-square h-[5rem] w-[5rem] flex-shrink-0 overflow-hidden"
+                >
+                  <Image
+                    src={`https:${thumbnailUrl}`}
+                    alt={`${product.items[0].fields.title} - Thumbnail ${index}`}
+                    className={`transform cursor-pointer rounded-md object-cover shadow-md transition-all duration-300 hover:scale-105 ${
+                      selectedImage === thumbnailUrl
+                        ? "brightness-100"
+                        : "brightness-75 hover:brightness-100"
+                    }`}
+                    onClick={() => handleImageClick(imageId)}
+                    fill
+                  />
+                </div>
+              ) : null;
+            })
+          : null}
       </div>
     </section>
   );
