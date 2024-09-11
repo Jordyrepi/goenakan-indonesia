@@ -122,7 +122,7 @@ const Footer = async () => {
                 </li>
               </ul>
             </div>
-            <div className="space-y-6 py-6 md:w-[20rem]">
+            <div className="space-y-6 py-6 md:w-[20reksm]">
               <h1 className="text-3xl font-medium">SUPPORT</h1>
               <ul className="space-y-4">
                 <li>
