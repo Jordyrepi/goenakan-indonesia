@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export interface CustomOrderData {
+  email: string;
   companyName: string;
   departmentName: string;
   up: string;

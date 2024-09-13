@@ -24,7 +24,7 @@ const CardProduct: React.FC<CardProductProps> = ({
               src="/watermark out of stock.svg"
               alt="Out of stock"
               fill
-              className="z-20 "
+              className="z-20"
             />
           </>
         )}
@@ -32,15 +32,15 @@ const CardProduct: React.FC<CardProductProps> = ({
           src={`https:${thumbnailUrl}`}
           alt={product.title}
           fill
-          className={`mx-auto object-cover rounded-md ${!product.isAvailable ? "opacity-70" : ""}`}
+          className={`mx-auto rounded-md object-cover ${!product.isAvailable ? "opacity-70" : ""}`}
         />
       </div>
-      <div className="p-4 md:p-8">
+      <div className="font-openSans p-4 md:p-8">
         <div className="space-y-1">
-          <span className="line-clamp-1 font-sans text-[12px] md:text-sm">
+          <span className="line-clamp-1 text-[12px] md:text-sm">
             {category}
           </span>
-          <h5 className="line-clamp-1 font-medium md:text-lg">
+          <h5 className="line-clamp-1 font-semibold md:text-lg">
             {product.title}
           </h5>
           <p>{`${product.long} x ${product.width} cm`}</p>

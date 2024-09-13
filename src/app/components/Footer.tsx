@@ -102,8 +102,8 @@ const Footer = async () => {
           </div>
           <div className="gap-x-5 md:ml-14 md:flex">
             <div className=" space-y-5 py-6 md:w-[20rem] ">
-              <h1 className="text-3xl font-medium">INFORMATION</h1>
-              <ul className="space-y-4">
+              <h1 className="text-3xl font-medium font-gilda">INFORMATION</h1>
+              <ul className="space-y-4 font-openSans font-medium">
                 <li>
                   <Link href={"/"}>Show All</Link>
                 </li>
@@ -123,8 +123,8 @@ const Footer = async () => {
               </ul>
             </div>
             <div className="space-y-6 py-6 md:w-[20reksm]">
-              <h1 className="text-3xl font-medium">SUPPORT</h1>
-              <ul className="space-y-4">
+              <h1 className="text-3xl font-medium font-gilda">SUPPORT</h1>
+              <ul className="space-y-4 font-openSans font-medium">
                 <li>
                   <Link href={"/about-us"}>About Us</Link>
                 </li>
@@ -137,7 +137,7 @@ const Footer = async () => {
               </ul>
 
               <div className="space-y-3">
-                <h2 className="text-2xl font-medium">Follow Us</h2>
+                <h2 className="text-2xl font-medium font-gilda">Follow Us</h2>
                 <div className="flex gap-x-4">
                   {footer.items[0].fields.linkedInLink && (
                     <a

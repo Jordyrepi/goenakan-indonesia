@@ -10,6 +10,7 @@ export async function POST(req: NextRequest) {
   if (req.method === "POST") {
     try {
       const {
+        email,
         companyName,
         departmentName,
         up,
@@ -18,13 +19,16 @@ export async function POST(req: NextRequest) {
         printingMethod,
         customDetail,
         shippingAddress,
-        reference
+        reference,
       } = await req.json();
 
-      const templatePath = path.resolve("src/templates/tempEmailCustomOrder.ejs");
+      const templatePath = path.resolve(
+        "src/templates/tempEmailCustomOrder.ejs",
+      );
 
       const templateSource = await fs.readFile(templatePath, "utf-8");
       const html = ejs.render(templateSource, {
+        email,
         companyName,
         departmentName,
         up,
@@ -33,10 +37,11 @@ export async function POST(req: NextRequest) {
         printingMethod,
         customDetail,
         shippingAddress,
-        reference
+        reference,
       });
 
       const mailOptions: Mail.Options = {
+        from: `"${email}" <${email}>`,
         to: "joju19grifith@gmail.com",
         subject: `New Custom Order Form Submission from ${companyName}`,
         html,

@@ -38,14 +38,13 @@
     </body>
 </html> -->
 
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Order Request</title>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Custom Order Request</title>
+        <style>
         body {
             background-color: #f4f4f9;
             font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -100,52 +99,57 @@
             margin: 5px 0;
         }
     </style>
-</head>
-<body>
-    <div class="email-container">
-        <!-- Header -->
-        <div class="email-header">
-            <h1>New Custom Order from <%= companyName %></h1>
-        </div>
-        <!-- Body -->
-        <div class="email-body">
-            <p>We have received a new custom order request. Please find the details below:</p>
-            
-            <div class="order-info">
-                <p class="field-title">Company Name</p>
-                <p class="field-value"><%= companyName %></p>
+    </head>
+    <body>
+        <div class="email-container">
+            <!-- Header -->
+            <div class="email-header">
+                <h1>New Custom Order from <%= companyName %></h1>
+            </div>
+            <!-- Body -->
+            <div class="email-body">
+                <p>We have received a new custom order request. Please find the
+                    details below:</p>
 
-                <p class="field-title">Department Name</p>
-                <p class="field-value"><%= departmentName %></p>
+                <div class="order-info">
+                    <p class="field-title">Email</p>
+                    <p class="field-value"><%= email %></p>
 
-                <p class="field-title">UP</p>
-                <p class="field-value"><%= up %></p>
+                    <p class="field-title">Company Name</p>
+                    <p class="field-value"><%= companyName %></p>
 
-                <p class="field-title">Product</p>
-                <p class="field-value"><%= product %></p>
+                    <p class="field-title">Department Name</p>
+                    <p class="field-value"><%= departmentName %></p>
 
-                <p class="field-title">Quantity</p>
-                <p class="field-value"><%= quantity %></p>
+                    <p class="field-title">UP</p>
+                    <p class="field-value"><%= up %></p>
 
-                <p class="field-title">Printing Method</p>
-                <p class="field-value"><%= printingMethod %></p>
+                    <p class="field-title">Product</p>
+                    <p class="field-value"><%= product %></p>
 
-                <p class="field-title">Custom Detail</p>
-                <p class="field-value"><%= customDetail %></p>
+                    <p class="field-title">Quantity</p>
+                    <p class="field-value"><%= quantity %></p>
 
-                <p class="field-title">Shipping Address</p>
-                <p class="field-value"><%= shippingAddress %></p>
+                    <p class="field-title">Printing Method</p>
+                    <p class="field-value"><%= printingMethod %></p>
 
-                <p class="field-title">Reference</p>
-                <p class="field-value"><%= reference %></p>
+                    <p class="field-title">Custom Detail</p>
+                    <p class="field-value"><%= customDetail %></p>
+
+                    <p class="field-title">Shipping Address</p>
+                    <p class="field-value"><%= shippingAddress %></p>
+
+                    <p class="field-title">Reference</p>
+                    <p class="field-value"><%= reference %></p>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="email-footer">
+                <p>Please respond to this request at your earliest
+                    convenience.</p>
+                <p>Thank you for choosing our services.</p>
             </div>
         </div>
-
-        <!-- Footer -->
-        <div class="email-footer">
-            <p>Please respond to this request at your earliest convenience.</p>
-            <p>Thank you for choosing our services.</p>
-        </div>
-    </div>
-</body>
+    </body>
 </html>

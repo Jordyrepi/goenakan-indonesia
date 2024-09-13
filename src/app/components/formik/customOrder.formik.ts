@@ -10,6 +10,7 @@ export function useCustomOrderForm() {
 
   const formik = useFormik({
     initialValues: {
+      email: "",
       companyName: "",
       departmentName: "",
       up: "",

@@ -51,7 +51,7 @@ const Navbar = () => {
               alt="logo navbar"
             />
           </Link>
-          <div className="space-x-10">
+          <div className="space-x-10 text-lg font-gilda font-medium">
             <Link href={"/product"}>Products</Link>
             <Link href={"/about-us"}>About us</Link>
             <Link href={"/contact-us"}>Contact us</Link>
@@ -78,7 +78,7 @@ const Navbar = () => {
               </button>
             </SheetTrigger>
             <SheetContent>
-              <ul className="list-none space-y-2">
+              <ul className="list-none space-y-2 font-gilda">
                 <li>
                   {" "}
                   <Link href={"/product"}>Products</Link>

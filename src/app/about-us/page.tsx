@@ -24,7 +24,7 @@ const AboutUsPage = () => {
     <main className="bg-[#e1dad6]">
       <div className="mx-auto py-20 w-full max-w-7xl space-y-10">
         <div className="flex justify-center">
-          <h1 className="font-serif md:text-5xl text-3xl">About Us</h1>
+          <h1 className=" md:text-5xl text-3xl font-gilda">About Us</h1>
         </div>
 
         <div className="space-y-16">
@@ -44,7 +44,7 @@ const AboutUsPage = () => {
                     />
                   </div>
                   <div className="w-[21rem]">
-                    <p>{content.text}</p>
+                    <p className="font-openSans">{content.text}</p>
                   </div>
                 </div>
               ) : (
@@ -53,7 +53,7 @@ const AboutUsPage = () => {
                   className="flex items-center flex-col-reverse md:flex-row justify-center gap-24"
                 >
                   <div className="w-[21rem]">
-                    <p>{content.text}</p>
+                    <p className="font-openSans">{content.text}</p>
                   </div>
                   <div className="relative h-[25rem] w-[20rem]">
                     <Image
