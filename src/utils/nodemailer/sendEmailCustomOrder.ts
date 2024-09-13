@@ -1,24 +1,30 @@
-export interface ContactFormData {
-  name: string;
-  subject: string;
-  email: string;
-  phoneNumber: string;
+import axios from "axios";
+
+export interface CustomOrderData {
   companyName: string;
-  message: string;
+  departmentName: string;
+  up: string;
+  product: string;
+  quantity: string;
+  printingMethod: string;
+  customDetail: string;
+  shippingAddress: string;
+  reference?: string;
 }
 
-export async function sendEmailContact(data: ContactFormData, toast: Function) {
-  const apiEndpoint = "/api/contact-us";
-
+export async function sendCustomOrder(
+  orderData: CustomOrderData,
+  toast: Function,
+) {
+  const apiEndpoint = "/api/custom-order";
   try {
     const response = await fetch(apiEndpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(orderData),
     });
-
 
     const result = await response.json();
 
@@ -32,11 +38,11 @@ export async function sendEmailContact(data: ContactFormData, toast: Function) {
         "Thank you for your interest in our company! We will be in touch shortly.",
       variant: "default",
     });
-  } catch (err) {
-    if (err instanceof Error) {
+  } catch (error) {
+    if (error instanceof Error) {
       toast({
         title: "Error",
-        description: `${err.message}`,
+        description: `${error.message}`,
         variant: "destructive",
       });
     } else {

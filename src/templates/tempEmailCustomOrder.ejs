@@ -1,0 +1,151 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Custom Order Request</title>
+    </head>
+    <body
+        style="background-color: #f3f3f3; color: #555; font-family: Arial, sans-serif; line-height: 1.6; padding: 20px;">
+        <table border="0" cellpadding="0" cellspacing="0"
+            style="max-width: 600px; margin: 20px auto; background-color: #fffdf7; border-collapse: collapse;">
+            <tr>
+                <td
+                    style="padding: 30px; text-align: center; background-color: #008080; color: #fffdf7;">
+                    <h1>New Custom Order from <%= companyName %></h1>
+                    <p>We have received a new custom order request.</p>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 20px;">
+                    <p style="color: #555;"><strong>Company Name:</strong> <%= companyName %></p>
+                    <p style="color: #555;"><strong>Department Name:</strong> <%= departmentName %></p>
+                    <p style="color: #555;"><strong>UP:</strong> <%= up %></p>
+                    <p style="color: #555;"><strong>Product:</strong> <%= product %></p>
+                    <p style="color: #555;"><strong>Quantity:</strong> <%= quantity %></p>
+                    <p style="color: #555;"><strong>Printing Method:</strong> <%= printingMethod %></p>
+                    <p style="color: #555;"><strong>Custom Detail:</strong> <%= customDetail %></p>
+                    <p style="color: #555;"><strong>Shipping Address:</strong> <%= shippingAddress %></p>
+                    <p style="color: #555;"><strong>Reference:</strong> <%= reference %></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 20px; text-align: center;">
+                    <p style="color: #555;">Please respond to this order request at your earliest convenience.</p>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Order Request</title>
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+            padding: 0;
+            margin: 0;
+        }
+        .email-container {
+            max-width: 650px;
+            margin: 40px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .email-header {
+            background-color: #463B34; /* Company color */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .email-header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: normal;
+        }
+        .email-body {
+            padding: 30px;
+        }
+        .email-body p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .email-body .field-title {
+            font-weight: bold;
+            color: #463B34; /* Company color for headings */
+            margin-top: 10px;
+        }
+        .email-body .field-value {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .email-footer {
+            background-color: #f4f4f9;
+            padding: 20px;
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+        }
+        .email-footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="email-header">
+            <h1>New Custom Order from <%= companyName %></h1>
+        </div>
+        <!-- Body -->
+        <div class="email-body">
+            <p>We have received a new custom order request. Please find the details below:</p>
+            
+            <div class="order-info">
+                <p class="field-title">Company Name</p>
+                <p class="field-value"><%= companyName %></p>
+
+                <p class="field-title">Department Name</p>
+                <p class="field-value"><%= departmentName %></p>
+
+                <p class="field-title">UP</p>
+                <p class="field-value"><%= up %></p>
+
+                <p class="field-title">Product</p>
+                <p class="field-value"><%= product %></p>
+
+                <p class="field-title">Quantity</p>
+                <p class="field-value"><%= quantity %></p>
+
+                <p class="field-title">Printing Method</p>
+                <p class="field-value"><%= printingMethod %></p>
+
+                <p class="field-title">Custom Detail</p>
+                <p class="field-value"><%= customDetail %></p>
+
+                <p class="field-title">Shipping Address</p>
+                <p class="field-value"><%= shippingAddress %></p>
+
+                <p class="field-title">Reference</p>
+                <p class="field-value"><%= reference %></p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="email-footer">
+            <p>Please respond to this request at your earliest convenience.</p>
+            <p>Thank you for choosing our services.</p>
+        </div>
+    </div>
+</body>
+</html>
