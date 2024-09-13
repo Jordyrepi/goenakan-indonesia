@@ -59,10 +59,10 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex w-full items-center justify-between py-4 md:hidden">
-          <div className="relative h-[50px] w-[180px] md:h-[70px] md:w-[190px]">
+          <div className="relative h-[50px] w-[170px] md:h-[70px] md:w-[190px]">
             <Image
               fill
-              className="object-cover"
+              className=""
               src={"/logo/Goenakan Logo Text Brown-01.svg"}
               alt="logo navbar"
             />

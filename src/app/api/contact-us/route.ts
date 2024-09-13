@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
 
       const mailOptions: Mail.Options = {
         from: `"${email}" <${email}>`,
-        to: "joju19grifith@gmail.com",
+        to: process.env.COMPANY_EMAIL,
         subject: `New Contact Form Submission from ${name}`,
         text: `Name: ${name}\subject: ${subject}\nEmail: ${email}\nPhone Number: ${phoneNumber}\nCompany Name: ${companyName}\nWebsite: ${website}\n\nMessage:\n${message}`,
         html,

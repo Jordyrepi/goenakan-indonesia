@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
 
       const mailOptions: Mail.Options = {
         from: `"${email}" <${email}>`,
-        to: "joju19grifith@gmail.com",
+        to: process.env.COMPANY_EMAIL,
         subject: `New Custom Order Form Submission from ${companyName}`,
         html,
       };

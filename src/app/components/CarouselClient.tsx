@@ -35,12 +35,12 @@ const CarouselClient: React.FC<CarouselClientProps> = ({ clients }) => {
                 key={index}
                 className="flex items-center justify-center pl-1 md:basis-1/2 lg:basis-1/5 basis-1/3"
               >
-                <div className="relative md:h-[125px] md:w-[125px] w-[75px] h-[75px]">
+                <div className="relative md:h-[125px] md:w-full w-[75px] h-[75px]">
                   <Image
                     src={`https:${thumbnail?.fields.file.url}`}
                     alt={client.fields.clientName}
                     fill
-                    sizes="fit"
+                    className="object-contain"
                     quality={100}
                   />
                 </div>

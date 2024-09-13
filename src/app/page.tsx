@@ -110,7 +110,7 @@ const Home = async () => {
             <Image
               fill
               className="rounded-xl object-cover"
-              src={"/Story-Section-1.png"}
+              src={"/Story Section 1.png"}
               alt="Story-Section"
             />
           </div>
