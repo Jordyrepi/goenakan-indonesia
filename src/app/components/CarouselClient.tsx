@@ -15,7 +15,6 @@ const CarouselClient: React.FC<CarouselClientProps> = ({ clients }) => {
   );
   return (
     <section className="space-y-4">
-      <h1 className="text-center md:text-5xl text-3xl font-medium font-gilda">Our Clients</h1>
       <Carousel
         plugins={[plugin.current]}
         opts={{
