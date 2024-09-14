@@ -10,22 +10,13 @@ const Footer = async () => {
   const footer: FooterTypes = await getEntries("footer");
 
   const contact1 = footer.items[0].fields?.contactPerson1
-    ? formatContact(
-        footer.items[0].fields.contactPerson1,
-        footer.items[0].fields.contactPersonName1,
-      )
+    ? formatContact(footer.items[0].fields.contactPerson1)
     : "";
   const contact2 = footer.items[0].fields?.contactPerson2
-    ? formatContact(
-        footer.items[0].fields.contactPerson2,
-        footer.items[0].fields.contactPersonName2,
-      )
+    ? formatContact(footer.items[0].fields.contactPerson2)
     : "";
   const contact3 = footer.items[0].fields?.contactPerson3
-    ? formatContact(
-        footer.items[0].fields.contactPerson3,
-        footer.items[0].fields.contactPersonName3,
-      )
+    ? formatContact(footer.items[0].fields.contactPerson3)
     : "";
 
   const contact1WhatsAppLink = footer.items[0].fields?.contactPerson1
@@ -71,14 +62,13 @@ const Footer = async () => {
       <div className="mx-auto w-full max-w-7xl justify-center px-4 py-10 md:flex">
         <div className="gap-10 md:flex">
           <div className="space-y-5 font-medium md:w-[30rem]">
-            <div className="relative flex h-[6rem] w-[10rem] items-start">
+            <div className="relative flex h-[10rem] w-[17rem] items-start">
               <Image
-                src={"/logo/Goenakan Logo Only Brown-03.svg"}
+                src={"/logo/Goenakan Logo Text Brown-01.svg"}
                 alt="logo footer"
                 fill
               />
             </div>
-            <p>Goenakan Indonesia</p>
             <div className="space-y-3">
               <p>{footer.items[0].fields?.location}</p>
             </div>
@@ -89,20 +79,20 @@ const Footer = async () => {
                 </Link>
               )}
               {contact2 && (
-                <Link href={contact1WhatsAppLink} className="flex">
+                <Link href={contact2WhatsAppLink} className="flex">
                   <p>{contact2}</p>
                 </Link>
               )}
               {contact3 && (
-                <Link href={contact1WhatsAppLink} className="flex">
+                <Link href={contact3WhatsAppLink} className="flex">
                   <p>{contact3}</p>
                 </Link>
               )}
             </div>
           </div>
           <div className="gap-x-5 md:ml-14 md:flex">
-            <div className=" space-y-5 py-6 md:w-[20rem] ">
-              <h1 className="text-3xl font-medium font-gilda">INFORMATION</h1>
+            <div className="space-y-5 py-6 md:w-[20rem]">
+              <h1 className="font-gilda text-3xl font-medium">INFORMATION</h1>
               <ul className="space-y-4 font-openSans font-medium">
                 <li>
                   <Link href={"/"}>Show All</Link>
@@ -123,7 +113,7 @@ const Footer = async () => {
               </ul>
             </div>
             <div className="space-y-6 py-6 md:w-[20reksm]">
-              <h1 className="text-3xl font-medium font-gilda">SUPPORT</h1>
+              <h1 className="font-gilda text-3xl font-medium">SUPPORT</h1>
               <ul className="space-y-4 font-openSans font-medium">
                 <li>
                   <Link href={"/about-us"}>About Us</Link>
@@ -137,7 +127,7 @@ const Footer = async () => {
               </ul>
 
               <div className="space-y-3">
-                <h2 className="text-2xl font-medium font-gilda">Follow Us</h2>
+                <h2 className="font-gilda text-2xl font-medium">Follow Us</h2>
                 <div className="flex gap-x-4">
                   {footer.items[0].fields.linkedInLink && (
                     <a

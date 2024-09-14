@@ -23,7 +23,7 @@ const CarouselClient: React.FC<CarouselClientProps> = ({ clients }) => {
         }}
         className=" mx-auto w-full max-w-7xl"
       >
-        <CarouselContent className="ml-1">
+        <CarouselContent className="ml-1 space-x-16">
           {clients?.items.map((client, index) => {
             const idAsset = client.fields.logoClient.sys.id;
             const assets = clients.includes.Asset;
