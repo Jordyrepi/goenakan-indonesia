@@ -42,8 +42,6 @@ export async function POST(req: NextRequest) {
       await transport.sendMail(mailOptions);
       return NextResponse.json({ message: "Email sent successfully" });
     } catch (error) {
-      console.log("check error : ", error);
-
       return NextResponse.json(
         { error: "Failed to process form data" },
         { status: 500 },

@@ -15,8 +15,7 @@ const ProductPage = async ({ searchParams }: any) => {
     Number(searchParams.page) || 1,
     selectedCategory,
   );
-  
-  
+
   const totalPages = Math.ceil(entriesPagination.total / 12);
 
   return (

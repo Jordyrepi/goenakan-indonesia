@@ -8,7 +8,8 @@ import {
   SelectValue,
 } from "@/components/ui/Select";
 import { Categories } from "@/types/categories.types";
-import { useRouter } from "next/navigation";
+import { getEntriesCategoryBySysId } from "@/utils/contenful/get-entries";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 interface FilterProductsProps {
@@ -21,20 +22,45 @@ const FilterProducts: React.FC<FilterProductsProps> = ({
   onCategoryChange,
 }) => {
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
+  const [categoryParams, setCategoryParams] = useState("");
   const router = useRouter();
-  useEffect(() => {}, [categories]);
+  const params = useSearchParams();
+  const categorySysId = params.get("category"); // Extracts the 'category' from URL params
+  console.log("check params : ", categoryParams);
+
+  useEffect(() => {
+    if (categorySysId) {
+      const fetchCategoryBySysId = async () => {
+        try {
+          const category: Categories = await getEntriesCategoryBySysId(
+            String(categorySysId), // Pass the actual categorySysId, not the function
+          );
+
+          setCategoryParams(category.items[0].fields.slug);
+          console.log("check fetch category : ", category.items[0].fields.slug);
+        } catch (error) {
+          console.error("Error fetching category: ", error);
+        }
+      };
+
+      fetchCategoryBySysId();
+    }
+  }, [categorySysId]);
 
   const handleCategoryChange = (newCategoryId: string) => {
     setSelectedCategoryId(newCategoryId);
     onCategoryChange(newCategoryId);
     router.push(`/product?category=${newCategoryId}`);
   };
+  console.log("check category id : ", selectedCategoryId);
 
   return (
-    <div className="flex items-center ">
+    <div className="flex items-center">
       <Select value={selectedCategoryId} onValueChange={handleCategoryChange}>
         <SelectTrigger className="">
-          <SelectValue placeholder={selectedCategoryId? selectedCategoryId : "All products"} />
+          <SelectValue
+            placeholder={categoryParams ? categoryParams : "All products"}
+          />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>

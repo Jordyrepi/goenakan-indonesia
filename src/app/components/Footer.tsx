@@ -1,5 +1,9 @@
+import { Categories } from "@/types/categories.types";
 import { FooterTypes } from "@/types/footer.types";
-import { getEntries } from "@/utils/contenful/get-entries";
+import {
+  getBestSellerCategoriesEntries,
+  getEntries,
+} from "@/utils/contenful/get-entries";
 import { createWhatsAppLink, formatContact } from "@/utils/format-contact";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,6 +12,8 @@ import { FaShippingFast } from "react-icons/fa";
 
 const Footer = async () => {
   const footer: FooterTypes = await getEntries("footer");
+  const bestSellerCategories: Categories =
+    await getBestSellerCategoriesEntries();
 
   const contact1 = footer.items[0].fields?.contactPerson1
     ? formatContact(footer.items[0].fields.contactPerson1)
@@ -95,18 +101,15 @@ const Footer = async () => {
               <h1 className="font-gilda text-3xl font-medium">INFORMATION</h1>
               <ul className="space-y-4 font-openSans font-medium">
                 <li>
-                  <Link href={"/"}>Show All</Link>
+                  <Link href={"/product"}>Show All</Link>
                 </li>
-                <li>
-                  <Link href={"/"}>Stainless Steel Products</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Wooden Products</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Glass Products</Link>
-                </li>
-
+                {bestSellerCategories.items.map((category, index) => (
+                  <li key={index}>
+                    <Link href={`/product?category=${category.sys.id}`}>
+                      {category.fields.title}
+                    </Link>
+                  </li>
+                ))}
                 <li>
                   <Link href={"/frequently-ask-question"}>FAQ</Link>
                 </li>

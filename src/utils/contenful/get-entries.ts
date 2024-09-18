@@ -1,6 +1,12 @@
-import { contenfulConfig } from "./config";
+import { contenfulConfig, contenfulConfigPublic } from "./config";
 
 const { baseUrl, spaceId, accessToken, environtmentId } = contenfulConfig;
+const {
+  baseUrlPublic,
+  spaceIdPublic,
+  accessTokenPublic,
+  environtmentIdPublic,
+} = contenfulConfigPublic;
 
 export const getEntries = async (contentType: string) => {
   const response = await fetch(
@@ -18,7 +24,11 @@ export const getEntries = async (contentType: string) => {
 export const getBestSellerCategoriesEntries = async () => {
   const response = await fetch(
     `${baseUrl}/spaces/${spaceId}/environments/${environtmentId}/entries?access_token=${accessToken}&content_type=category&fields.isBestSeller=true`,
-    { cache: "no-store" },
+    {
+      next: {
+        revalidate: 10,
+      },
+    },
   );
 
   return response.json();
@@ -31,10 +41,6 @@ export const getEntriesPagination = async (
   const limit = 12;
   const skip = (page - 1) * limit;
 
-  const categoryFilter = selectedCategory
-    ? `&fields.category.sys.id=${selectedCategory}`
-    : "";
-
   const res = await fetch(
     `${baseUrl}/spaces/${spaceId}/environments/${environtmentId}/entries?access_token=${accessToken}&content_type=product&fields.category.sys.id=${selectedCategory}&skip=${skip}&limit=${limit}`,
     {
@@ -46,6 +52,19 @@ export const getEntriesPagination = async (
 
   const data = await res.json();
   return data;
+};
+
+export const getEntriesCategoryBySysId = async (categorySysId: string) => {
+  const response = await fetch(
+    `${baseUrlPublic}/spaces/${spaceIdPublic}/environments/${environtmentIdPublic}/entries?access_token=${accessTokenPublic}&content_type=category&sys.id=${categorySysId}`,
+    {
+      next: {
+        revalidate: 10,
+      },
+    },
+  );
+
+  return response.json();
 };
 
 export const getEntriesBySlug = async (contentType: string, slug: string) => {

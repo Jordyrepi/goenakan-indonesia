@@ -37,8 +37,5 @@ export function useContactForm() {
     },
   });
 
-  console.log("check formik : ",formik);
-  
-
   return { formik, loading };
 }
