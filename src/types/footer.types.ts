@@ -14,7 +14,7 @@ export interface FooterTypes {
       location: string;
       linkedInLink?: string
       facebookLink?: string
-      tiktokLink?: string
+      tikTokLink?: string
       instagramLink?: string
     };
   }[];

@@ -174,8 +174,8 @@ const Footer = async () => {
                       </div>
                     </a>
                   )}
-                  {footer.items[0].fields.tiktokLink && (
-                    <a href={footer.items[0].fields.tiktokLink} target="_blank">
+                  {footer.items[0].fields.tikTokLink && (
+                    <a href={footer.items[0].fields.tikTokLink} target="_blank">
                       <div className="relative h-10 w-10">
                         <Image src={"/icons/tiktok.svg"} alt="Linkedin" fill />
                       </div>
