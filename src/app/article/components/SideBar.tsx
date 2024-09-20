@@ -35,20 +35,20 @@ const SideBar = async () => {
         <h2 className="font-gilda text-2xl font-bold">Latest Articles</h2>
         <ul className="mt-4 space-y-5">
           {articleEntries.items.slice(0, 5).map((article, index) => (
-            <>
-              <li key={index}>
-                <a
-                  href=""
-                  className="text-base font-normal text-current transition-all duration-300 ease-in-out hover:font-medium hover:text-[#463b34]"
-                >
-                  {article.fields.title}
-                </a>
-                <p className="font-openSans text-sm font-semibold text-[#463b34]">
-                  {format(new Date(article.fields.createdAt), "MMMM d yyyy")}
-                </p>
-              </li>
-              <hr className="w-full border-[0.5]" />
-            </>
+            <React.Fragment key={index}>
+            <li>
+              <a
+                href=""
+                className="text-base font-normal text-current transition-all duration-300 ease-in-out hover:font-medium hover:text-[#463b34]"
+              >
+                {article.fields.title}
+              </a>
+              <p className="font-openSans text-sm font-semibold text-[#463b34]">
+                {format(new Date(article.fields.createdAt), "MMMM d yyyy")}
+              </p>
+            </li>
+            <hr className="w-full border-[0.5]" />
+          </React.Fragment>
           ))}
         </ul>
       </div>

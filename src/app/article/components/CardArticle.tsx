@@ -1,9 +1,8 @@
 import { ArticleIncludes, ArticleItems } from "@/types/article.types";
+import { BLOCKS } from "@contentful/rich-text-types";
 import { format } from "date-fns";
 import Image from "next/image";
 import React from "react";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
 
 interface CardArticleProps {
   article: ArticleItems;
@@ -24,7 +23,6 @@ const CardArticle: React.FC<CardArticleProps> = ({ article, includes }) => {
     (node: any) => node.nodeType === BLOCKS.PARAGRAPH,
   );
 
-  // Render the content of the first paragraph
   const firstParagraphContent = firstParagraphNode
     ? firstParagraphNode.content.map((childNode: any, index: number) => (
         <p
@@ -57,7 +55,6 @@ const CardArticle: React.FC<CardArticleProps> = ({ article, includes }) => {
         <h3 className="font-gilda text-3xl font-semibold">
           {article.fields.title}
         </h3>
-        {/* {documentToReactComponents(article.fields.content, RICHTEXT_OPTION)} */}
         {firstParagraphContent}
         <button className="mt-7 rounded-sm bg-[#7A543E] px-6 py-3 text-white">
           <a href={`/article/${article.fields.slug}`}>CONTINUE READING</a>

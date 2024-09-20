@@ -18,7 +18,7 @@ const FilterArticles: React.FC<FilterArticleProps> = ({ articleCategory }) => {
   return (
     <ul className="mt-4 space-y-5">
       {articleCategory.items.map((category, index) => (
-        <>
+        <React.Fragment key={index}>
           <li
             key={index}
             onClick={() => handleCategoryChange(category.sys.id)}
@@ -31,7 +31,7 @@ const FilterArticles: React.FC<FilterArticleProps> = ({ articleCategory }) => {
             {category.fields.title}
           </li>
           <hr className="w-full border-[0.5]" />
-        </>
+        </React.Fragment>
       ))}
     </ul>
   );

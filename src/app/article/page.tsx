@@ -15,7 +15,6 @@ const ArticlePage = async ({ searchParams }: any) => {
     Number(searchParams.page) || 1,
     selectedCategory,
   );
-  console.log("check fetch : ",articleEntriesPagination);
   
   const totalPages = Math.ceil(articleEntriesPagination.total / 10);
 
