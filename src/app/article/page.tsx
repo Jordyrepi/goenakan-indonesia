@@ -1,20 +1,35 @@
-import React from "react";
+import {
+  getArticleEntries,
+  getArticleEntriesPagination,
+} from "@/utils/contenful/get-entries";
+import CardArticle from "./components/CardArticle";
+import Layout from "./components/Layout";
+import { Article } from "@/types/article.types";
+import PaginationComp from "../product/components/Pagination";
 
-const ArticlePage = () => {
+const ArticlePage = async ({ searchParams }: any) => {
+  const articleEntries: Article = await getArticleEntries();
+  const selectedCategory = searchParams.category || "";
+
+  const articleEntriesPagination: Article = await getArticleEntriesPagination(
+    Number(searchParams.page) || 1,
+    selectedCategory,
+  );
+  const totalPages = Math.ceil(articleEntriesPagination.total / 10);
+
   return (
-    <main>
-      <section className="h-screen bg-slate-600">
-        <div className="relative top-72 mx-auto flex h-full w-full max-w-5xl flex-col">
-          <div className="flex w-full items-center justify-center">
-            <h1 className="font-serif text-4xl font-bold text-white">
-              Article
-            </h1>
-            <span className="border-1 w-full border border-white"></span>
-          </div>
-          <p>Where you learn more about how Krona. can grow your business</p>
-        </div>
-      </section>
-    </main>
+    <Layout>
+      {/* Content card artice  */}
+      {articleEntriesPagination.items.map((article, index) => (
+        <CardArticle
+          key={index}
+          article={article}
+          includes={articleEntries.includes}
+        />
+      ))}
+
+      <PaginationComp totalPages={totalPages} />
+    </Layout>
   );
 };
 

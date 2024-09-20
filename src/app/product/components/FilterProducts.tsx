@@ -25,22 +25,18 @@ const FilterProducts: React.FC<FilterProductsProps> = ({
   const [categoryParams, setCategoryParams] = useState("");
   const router = useRouter();
   const params = useSearchParams();
-  const categorySysId = params.get("category"); // Extracts the 'category' from URL params
-  console.log("check params : ", categoryParams);
+  const categorySysId = params.get("category");
 
   useEffect(() => {
     if (categorySysId) {
       const fetchCategoryBySysId = async () => {
         try {
           const category: Categories = await getEntriesCategoryBySysId(
-            String(categorySysId), // Pass the actual categorySysId, not the function
+            String(categorySysId),
           );
 
           setCategoryParams(category.items[0].fields.slug);
-          console.log("check fetch category : ", category.items[0].fields.slug);
-        } catch (error) {
-          console.error("Error fetching category: ", error);
-        }
+        } catch (error) {}
       };
 
       fetchCategoryBySysId();
@@ -52,7 +48,6 @@ const FilterProducts: React.FC<FilterProductsProps> = ({
     onCategoryChange(newCategoryId);
     router.push(`/product?category=${newCategoryId}`);
   };
-  console.log("check category id : ", selectedCategoryId);
 
   return (
     <div className="flex items-center">

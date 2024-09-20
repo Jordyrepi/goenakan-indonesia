@@ -8,7 +8,7 @@ const ContactForm = () => {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className="flex flex-col gap-y-4 rounded-md bg-[#2C3E50] p-6 text-white md:w-[33rem] md:gap-y-5 md:p-11"
+      className="flex flex-col gap-y-4 rounded-md bg-[#463b34] p-6 text-white md:w-[33rem] md:gap-y-5 md:p-11"
     >
       <div className="flex flex-col gap-y-1">
         <label htmlFor="name" className="text-sm">
@@ -104,7 +104,7 @@ const ContactForm = () => {
 
       <button
         type="submit"
-        className="flex w-fit justify-start rounded-md bg-[#ce8c23] px-10 py-3 font-medium hover:bg-[#9F6544]"
+        className="flex w-fit justify-start rounded-md bg-[#7A543E] px-10 py-3 font-medium hover:bg-[#352d29]"
         disabled={formik.isSubmitting || loading}
       >
         {formik.isSubmitting || loading ? "Submitting..." : "Submit"}
