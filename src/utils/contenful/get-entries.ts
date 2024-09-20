@@ -80,7 +80,6 @@ export const getEntriesBySlug = async (contentType: string, slug: string) => {
   return response.json();
 };
 
-
 export const getArticleEntries = async () => {
   const response = await fetch(
     `${baseUrl}/spaces/${spaceId}/environments/${environtmentId}/entries?access_token=${accessToken}&content_type=article&order=fields.createdAt`,
@@ -92,7 +91,7 @@ export const getArticleEntries = async () => {
   );
 
   return response.json();
-}
+};
 
 export const getArticleEntriesPagination = async (
   page: number,
@@ -101,8 +100,8 @@ export const getArticleEntriesPagination = async (
   const limit = 10;
   const skip = (page - 1) * limit;
 
-  const res = await fetch(
-    `${baseUrl}/spaces/${spaceId}/environments/${environtmentId}/entries?access_token=${accessToken}&content_type=product&fields.category.sys.id=${selectedCategory}&skip=${skip}&limit=${limit}`,
+  const response = await fetch(
+    `${baseUrl}/spaces/${spaceId}/environments/${environtmentId}/entries?access_token=${accessToken}&content_type=article&fields.category.sys.id=${selectedCategory}&skip=${skip}&limit=${limit}&order=fields.createdAt`,
     {
       next: {
         revalidate: 10,
@@ -110,6 +109,5 @@ export const getArticleEntriesPagination = async (
     },
   );
 
-  const data = await res.json();
-  return data;
+  return response.json();
 };
