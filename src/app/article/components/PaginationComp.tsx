@@ -30,7 +30,7 @@ const PaginationComp: React.FC<PaginationCompProps> = ({ totalPages }) => {
     if (page < 1 || page > totalPages) return;
 
     const category = searchParams.get("category") || "";
-    router.push(`/product?category=${category}&page=${page}`);
+    router.push(`/article?category=${category}&page=${page}`);
     setPageNumber(page);
   };
 

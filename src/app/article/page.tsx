@@ -5,7 +5,7 @@ import {
 import CardArticle from "./components/CardArticle";
 import Layout from "./components/Layout";
 import { Article } from "@/types/article.types";
-import PaginationComp from "../product/components/Pagination";
+import PaginationComp from "./components/PaginationComp";
 
 const ArticlePage = async ({ searchParams }: any) => {
   const articleEntries: Article = await getArticleEntries();
@@ -15,7 +15,7 @@ const ArticlePage = async ({ searchParams }: any) => {
     Number(searchParams.page) || 1,
     selectedCategory,
   );
-  
+
   const totalPages = Math.ceil(articleEntriesPagination.total / 10);
 
   return (
