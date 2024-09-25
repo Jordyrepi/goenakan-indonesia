@@ -19,7 +19,7 @@ const ButtonWhatsapp = async () => {
       className="fixed bottom-6 z-50 right-6 flex items-center rounded-[10rem] bg-green-500 px-6 py-2 text-white shadow-lg transition-colors duration-300 hover:bg-green-600"
     >
       <FaWhatsapp className="mr-2 h-8 w-8" />
-      <span className="font-semibold">Hi, MinGo's Here</span>
+      <span className="font-semibold">Hi, MinGo&#39;s Here</span>
     </a>
   );
 };
