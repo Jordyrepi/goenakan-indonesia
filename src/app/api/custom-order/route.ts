@@ -8,17 +8,17 @@ import Mail from "nodemailer/lib/mailer";
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
-    
-    const email = formData.get('email') as string;
-    const companyName = formData.get('companyName') as string;
-    const departmentName = formData.get('departmentName') as string;
-    const up = formData.get('up') as string;
-    const product = formData.get('product') as string;
-    const quantity = formData.get('quantity') as string;
-    const printingMethod = formData.get('printingMethod') as string;
-    const customDetail = formData.get('customDetail') as string;
-    const shippingAddress = formData.get('shippingAddress') as string;
-    const referenceFile = formData.get('reference') as File | null;
+
+    const email = formData.get("email") as string;
+    const companyName = formData.get("companyName") as string;
+    const departmentName = formData.get("departmentName") as string;
+    const up = formData.get("up") as string;
+    const product = formData.get("product") as string;
+    const quantity = formData.get("quantity") as string;
+    const printingMethod = formData.get("printingMethod") as string;
+    const customDetail = formData.get("customDetail") as string;
+    const shippingAddress = formData.get("shippingAddress") as string;
+    const referenceFile = formData.get("reference") as File | null;
 
     // Read the email template
     const templatePath = path.resolve("src/templates/tempEmailCustomOrder.ejs");
@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
 
     const mailOptions: Mail.Options = {
       from: `"${email}" <${email}>`,
-      to: "joju19grifith@gmail.com", // Replace with process.env.COMPANY_EMAIL in production
+      to: process.env.COMPANY_EMAIL, // Replace with process.env.COMPANY_EMAIL in production
       subject: `New Custom Order Form Submission from ${companyName}`,
       html,
       attachments: [],
@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
     console.error("Error processing form data:", error);
     return NextResponse.json(
       { error: "Failed to process form data" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
