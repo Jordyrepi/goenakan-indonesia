@@ -38,30 +38,30 @@ const Footer = async () => {
   return (
     <footer>
       <div className="h-16 bg-black">
-        <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-center gap-x-5 overflow-x-auto text-white">
+        <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-center gap-x-10 overflow-x-auto text-white">
           <span className="flex items-center gap-5">
-            <FaShippingFast className="text-4xl" />
-            <p className="font-extralight">FAST DELIVERY</p>
+            <p className="font-extralight">Small MOQ</p>
           </span>
           <span className="flex items-center gap-5">
-            <FaShippingFast className="text-4xl" />
-            <p className="font-extralight">FREE DELIVERY</p>
+            <p className="font-extralight">Personalization</p>
           </span>
           <span className="flex items-center gap-5">
-            <FaShippingFast className="text-4xl" />
+            <p className="font-extralight">Quality and Detail Oriented</p>
+          </span>
+          <span className="flex items-center gap-5">
+            <p className="font-extralight">Competitive Price</p>
+          </span>
+          <span className="flex items-center gap-5">
             <p className="font-extralight">FREE SAMPLE</p>
           </span>
           <span className="flex items-center gap-5">
-            <FaShippingFast className="text-4xl" />
-            <p className="font-extralight">FREE SAMPLE</p>
+            <p className="font-extralight">Free Shipping</p>
           </span>
           <span className="flex items-center gap-5">
-            <FaShippingFast className="text-4xl" />
-            <p className="font-extralight">FREE SAMPLE</p>
+            <p className="font-extralight">Fast Response</p>
           </span>
           <span className="flex items-center gap-5">
-            <FaShippingFast className="text-4xl" />
-            <p className="font-extralight">FREE SAMPLE</p>
+            <p className="font-extralight">Fast Delivery</p>
           </span>
         </div>
       </div>
@@ -122,11 +122,11 @@ const Footer = async () => {
                   <Link href={"/about-us"}>About Us</Link>
                 </li>
                 <li>
-                  <Link href={"/"}>Contact Us</Link>
+                  <Link href={"/contact-us"}>Contact Us</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href={"/"}>Terms of Services</Link>
-                </li>
+                </li> */}
               </ul>
 
               <div className="space-y-3">

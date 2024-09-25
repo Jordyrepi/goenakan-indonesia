@@ -20,13 +20,21 @@ const Home = async () => {
   return (
     <main className="mb-10 space-y-10 bg-[#f4f4f4] md:space-y-20">
       <section className="flex h-screen bg-[#E1DAD6]">
-        <div className="relative top-[80px] h-fit space-y-5 px-4 md:left-10 md:top-[170px] md:w-[46rem]">
-          <h1 className="font-gilda text-2xl font-normal md:text-4xl">
-            Shining Beacon of Innovation and Sustainbility
+        <div className="relative h-full w-full">
+          <Image
+            src={"/GI-hero.png"}
+            alt="Hero Image"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="absolute z-40 flex h-full w-full flex-col items-center justify-center space-y-5 px-4 text-white">
+          <h1 className="text-center font-gilda text-2xl font-normal md:text-4xl">
+            Shining Beacon of Innovation and Sustainability
           </h1>
-          <p className="font-openSans text-lg font-medium md:w-[35rem]">
-            Born out of a deep commitment to eco-friendly practices we redifened
-            everyday utensils and drinkware
+          <p className="text-center font-openSans text-lg font-medium md:w-[35rem]">
+            Born out of a deep commitment to eco-friendly practices we redefined
+            everyday utensils and drinkware.
           </p>
           <button className="rounded-sm bg-[#463B34] px-10 py-2 text-white hover:bg-[#6f584a] md:px-16 md:py-4">
             SHOP NOW

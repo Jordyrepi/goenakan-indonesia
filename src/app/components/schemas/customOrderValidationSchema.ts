@@ -17,5 +17,20 @@ export const customOrderValidationSchema = Yup.object({
   printingMethod: Yup.string().required("Printing Method is required"),
   customDetail: Yup.string().required("Custom Detail is required"),
   shippingAddress: Yup.string().required("Shipping Address is required"),
-  reference: Yup.string(),
+  reference: Yup.mixed()
+    .test(
+      "fileSize",
+      "File size is too large",
+      (value) => !value || (value && (value as File).size <= 2000000), // 2MB limit
+    )
+    .test(
+      "fileType",
+      "Unsupported file format",
+      (value) =>
+        !value ||
+        (value &&
+          ["application/pdf", "image/jpeg", "image/png"].includes(
+            (value as File).type,
+          )),
+    ),
 });

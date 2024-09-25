@@ -12,7 +12,7 @@ const IconsSection = () => {
               key={index}
               className="animate-fadeIn flex transform flex-col items-center justify-center space-y-4 transition-transform duration-500 ease-in-out hover:-translate-y-2 md:w-[180px] md:gap-4"
             >
-              <div className="relative h-16 w-16 rounded-full md:h-32 md:w-32">
+              <div className="relative h-8 w-8 rounded-full md:h-32 md:w-32">
                 <Image
                   src={icon.icon}
                   alt={icon.title}
