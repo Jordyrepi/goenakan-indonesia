@@ -44,7 +44,7 @@ const AboutUsPage = () => {
                     />
                   </div>
                   <div className="w-[21rem]">
-                    <p className="font-openSans">{content.text}</p>
+                    <p className="font-openSans text-justify">{content.text}</p>
                   </div>
                 </div>
               ) : (

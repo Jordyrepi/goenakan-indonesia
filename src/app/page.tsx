@@ -36,9 +36,9 @@ const Home = async () => {
             Born out of a deep commitment to eco-friendly practices we redefined
             everyday utensils and drinkware.
           </p>
-          <button className="rounded-sm bg-[#463B34] px-10 py-2 text-white hover:bg-[#6f584a] md:px-16 md:py-4">
-            SHOP NOW
-          </button>
+          {/* <button className="rounded-sm bg-[#463B34] px-10 py-2 text-white hover:bg-[#6f584a] md:px-16 md:py-4">
+            <a href="/product">SHOP NOW</a>
+          </button> */}
         </div>
       </section>
 
