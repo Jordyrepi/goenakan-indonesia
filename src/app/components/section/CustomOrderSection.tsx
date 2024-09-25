@@ -11,7 +11,8 @@ import {
 import { useCustomOrderForm } from "../formik/customOrder.formik";
 
 const CustomOrderSection = () => {
-  const { formik, loading, handleFileChange, handleFileDelete } = useCustomOrderForm();
+  const { formik, loading, handleFileChange, handleFileDelete } =
+    useCustomOrderForm();
 
   return (
     <section className="mx-auto w-full max-w-7xl space-y-12 px-4">
@@ -202,26 +203,11 @@ const CustomOrderSection = () => {
             <label htmlFor="reference" className="font-openSans font-bold">
               Attach Your Reference (if any)
             </label>
-            <input
-              id="reference"
-              name="reference"
-              type="file"
-              className="rounded-md border-[0.5px] border-gray-500 px-4 py-3 font-openSans focus:outline-none"
-              onChange={(event) => {
-                const files = event.currentTarget.files;
-                if (files && files.length > 0) {
-                  formik.setFieldValue("reference", files[0]);
-                }
-              }}
-              onBlur={formik.handleBlur}
-            />
-            <div className="flex flex-col gap-2">
-            <label htmlFor="reference" className="font-openSans font-bold">
-              Attach Your Reference (if any)
-            </label>
             {formik.values.reference ? (
               <div className="flex items-center gap-2">
-                <span className="font-openSans">{formik.values.reference.name}</span>
+                <span className="font-openSans">
+                  {formik.values.reference.name}
+                </span>
                 <button
                   type="button"
                   onClick={handleFileDelete}
@@ -240,7 +226,6 @@ const CustomOrderSection = () => {
                 onBlur={formik.handleBlur}
               />
             )}
-          </div>
           </div>
           <button
             type="submit"
