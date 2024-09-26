@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import { Toaster } from "@/components/ui/Toaster";
-import { Gilda_Display, Open_Sans } from "next/font/google";
+import type { Metadata } from "next";
+import { Gilda_Display, Inter, Open_Sans } from "next/font/google";
 import ButtonWhatsapp from "./components/ButtonWhatsapp";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import "./globals.css";
+// import GoogleTagManager from "./components/GoogleTagManager";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,7 +34,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleTagManager gtmId="GTM-5JCCC86S" />
+      <GoogleAnalytics gaId="G-N6071QCKKH" />
       <body className={`${gilda.variable} ${openSans.variable}`}>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-5JCCC86S"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
         <Navbar />
         {children}
         <ButtonWhatsapp />
